@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">QUB Coin</a>
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home </a></li>
+                <li><a href="#">My Classes</a></li>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Logout </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Instructor Dashboard</h1>
+</div>
+
+<div class="panel panel-default">
+    
+    <div class="panel-heading">Balance</div>
+
+    <table dir="ltr" width="500" border="1"
+           summary="purpose/structure for speech output">
+
+        <colgroup width="50%" />
+        <colgroup id="colgroup" class="colgroup" align="center"
+                  valign="middle" title="title" width="1*"
+                  span="2" style="background:#ddd;" />
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Balance</th>
+
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>17th July 14:00</td>
+            <td>£0.35</td>
+
+        </tr>
+        </tfoot>
+    </table>
+
+    <div class="panel-heading">Transaction History</div>
+
+    <table dir="ltr" width="500" border="1"
+           summary="purpose/structure for speech output">
+
+        <colgroup width="50%" />
+        <colgroup id="colgroup" class="colgroup" align="center"
+                  valign="middle" title="title" width="1*"
+                  span="2" style="background:#ddd;" />
+        <thead>
+        <tr>
+            <th scope="col">Coins</th>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Class</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>20 Coins</td>
+            <td>17th july 14:00</td>
+            <td>Programming</td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td>10 coins</td>
+            <td>11th July 11:00</td>
+            <td>Databases</td>
+        </tr>
+        <tr>
+            <td>5 Coins</td>
+            <td>1st July 10:00</td>
+            <td>Android</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panel-heading">Feedback</div>
+    <table dir="ltr" width="500" border="1"
+           summary="purpose/structure for speech output">
+        <colgroup width="50%" />
+        <colgroup id="colgroup" class="colgroup" align="center"
+                  valign="middle" title="title" width="1*"
+                  span="2" style="background:#ddd;" />
+        <thead>
+        <tr>
+            <th scope="col">Excellent</th>
+            <th scope="col">Good</th>
+            <th scope="col">Average</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>5 students</td>
+            <td>3 students</td>
+            <td>1 student</td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td>6 students</td>
+            <td>5 students</td>
+            <td>3 students</td>
+        </tr>
+        <tr>
+            <td>6 students</td>
+            <td>5 students</td>
+            <td>3 students</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+</div>
+
+</body>
+</html>
