@@ -1,0 +1,39 @@
+{
+  "date": "24/07/2016 12:00:00",
+  "balance": 0.36,
+  "transactionHistory": [{
+    "coins": 10,
+    "timestamp": "11/07/2016 11:00:00",
+    "className": "Databases",
+    "excellent": "6",
+    "good": "5",
+    "average": "3"
+  }, {
+    "coins": 5,
+    "timestamp": "1/07/2016 10:00:00",
+    "className": "Android",
+    "excellent": "7",
+    "good": "5",
+    "average": "2"
+  }, {
+    "coins": 20,
+    "timestamp": "17/07/2016 14:00:00",
+    "className": "Programming",
+    "excellent": "9",
+    "good": "4",
+    "average": "1"
+  }],
+  "feedback": [{
+    "excellent": "6",
+    "good": "5",
+    "average": "3"
+  }, {
+    "excellent": "7",
+    "good": "5",
+    "average": "2"
+  }, {
+    "excellent": "9",
+    "good": "4",
+    "average": "1"
+  }]
+}

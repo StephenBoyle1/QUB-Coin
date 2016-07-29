@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">QUB Coin</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Classes</a></li>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Logout </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1> Instructor Dashboard </h1>
+</div>
+
+
+<div class="panel-heading">Balance</div>
+
+<table class="table table-striped" dir="ltr" width="500" border="1"
+       summary="purpose/structure for speech output">
+
+
+    <colgroup id="colgroup" class="colgroup" align="center"
+              valign="middle" title="title" width="30%"
+              span="2"/>
+    <thead>
+    <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Balance</th>
+
+
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td><%= instructor.date %></td>
+        <td><%= instructor.balance %></td>
+
+    </tr>
+    </tfoot>
+</table>
+
+<div class="panel-heading">Transaction History</div>
+
+<table class="table table-striped" dir="ltr" width="300" border="1"
+       summary="purpose/structure for speech output">
+
+
+    <colgroup id="colgroup" class="colgroup" align="center"
+              valign="middle" width="30%" title="title"
+              span="2"/>
+    <thead>
+    <tr>
+        <th scope="col">Date/Time</th>
+        <th scope="col">Coins</th>
+        <th scope="col">Class</th>
+        <th scope="col">Excellent</th>
+        <th scope="col">Good</th>
+        <th scope="col">Average</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <% instructor.transactionHistory.forEach(function(item){ %>
+        <td><%= item.timestamp %></td>
+        <td><%= item.coins %></td>
+        <td><%= item.className %></td>
+        <td><%= item.excellent %></td>
+        <td><%= item.good %></td>
+        <td><%= item.average %></td>
+
+    </tr>
+    </tfoot>
+    <tbody>
+
+    <% }); %>
+    </tbody>
+</table>
+
+</body>
+</html>
