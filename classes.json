@@ -1,0 +1,19 @@
+{
+  "classesCreatedTable": [{
+    "className": "Databases",
+    "timestamp": "11/07/2016 11:00:00",
+    "location": "Room 1",
+    "numberOfStudents": "30"
+
+  }, {
+    "className": "Programming",
+    "timestamp": "11/07/2016 12:00:00",
+    "location": "Room 2",
+    "numberOfStudents": "80"
+  }, {
+    "className": "Android",
+    "timestamp": "11/07/2016 14:00:00",
+    "location": "Room 1",
+    "numberOfStudents": "100"
+  }]
+}
