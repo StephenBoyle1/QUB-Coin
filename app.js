@@ -11,11 +11,12 @@ var instructorDashboard = require('./routes/instructorDashboard');
 var adminCreateClass = require('./routes/adminCreateClass');
 var login = require('./routes/login');
 var signUp = require('./routes/signUp');
+var studentViewClass = require('./routes/studentViewClass');
+var studentSendPoints = require('./routes/studentSendPoints');
+var adminClassesCreated = require('./routes/adminClassesCreated');
 
 
 var app = express();
-app.locals.videodata = require('./instructor.json');
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,6 +35,9 @@ app.use('/instructorDashboard', instructorDashboard);
 app.use('/adminCreateClass', adminCreateClass);
 app.use('/login', login);
 app.use('/signUp', signUp);
+app.use('/studentViewClass', studentViewClass);
+app.use('/studentSendPoints', studentSendPoints);
+app.use('/adminClassesCreated', adminClassesCreated);
 
 
 // catch 404 and forward to error handler
