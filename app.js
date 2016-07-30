@@ -14,6 +14,7 @@ var signUp = require('./routes/signUp');
 var studentViewClass = require('./routes/studentViewClass');
 var studentSendPoints = require('./routes/studentSendPoints');
 var adminClassesCreated = require('./routes/adminClassesCreated');
+var studentDisplayClasses = require('./routes/studentDisplayClasses');
 
 
 var app = express();
@@ -38,6 +39,7 @@ app.use('/signUp', signUp);
 app.use('/studentViewClass', studentViewClass);
 app.use('/studentSendPoints', studentSendPoints);
 app.use('/adminClassesCreated', adminClassesCreated);
+app.use('/studentDisplayClasses', studentDisplayClasses);
 
 
 // catch 404 and forward to error handler

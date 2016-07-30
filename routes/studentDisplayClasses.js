@@ -1,17 +1,19 @@
 /**
- * Created by Linzi on 28/07/2016.
+ * Created by linzi on 30/07/2016.
  */
 var express = require('express');
 var router = express.Router();
 var classesTable = require('../classes.json');
-//var html = new EJS({url: 'instructorDashboard.ejs'}).render(data);
 
-/* Get adminClassesCreated page. */
+
+/* Get instructor-dashboard page. */
 router.get('/', function(reg, reg, next){
-    reg.render('adminClassesCreated', {
+    reg.render('studentDisplayClasses', {
+        header: 'Student Display Classes' ,
         classes: classesTable
 
     });
 });
+
 
 module.exports = router;
