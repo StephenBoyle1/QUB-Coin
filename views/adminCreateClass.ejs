@@ -72,12 +72,11 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Instructor Name</a></li>
-                <li><a href="#">Instructor Name</a></li>
-                <li><a href="#">Instructor Name</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Instructor Name</a></li>
+                <% classes.classesCreatedTable.forEach(function(item){ %>
+                <li><a href="#"><%= item.instructor %></a></li>
+                <% }); %>
             </ul>
+
         </div>
 
 

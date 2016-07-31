@@ -3,12 +3,13 @@
  */
 var express = require('express');
 var router = express.Router();
-//var html = new EJS({url: 'instructorDashboard.ejs'}).render(data);
+var classesTable = require('../classes.json');
 
 /* Get instructor-dashboard page. */
 router.get('/', function(reg, reg, next){
     reg.render('adminCreateclass', {
-        header: 'adminCreateClass'
+        header: 'adminCreateClass',
+        classes: classesTable
 
     });
 });
