@@ -7,7 +7,7 @@ This is the repository for the Queens University project which aims to create a 
 •	Students will be encouraged to attend more lectures
 •	Supervisors will better support/understand problems students are having problems with
 •	More students will be encouraged to submit real time feedback instead of the slow paper based feedback system
-•	Supervisors will be able to respond to student concerns more quickly and effectively 
+•	Supervisors will be able to respond to student concerns more quickly and effectively
 
 
 ## Terms
@@ -23,3 +23,5 @@ There are a couple of digital assets to be considered as of the initial design:
 ## Setting-up a geth node for ethereum using docker
 
 [This page](docs/geth-setup.md) explains the steps required to get an Ethereum Node running in Docker!
+
+This GETH setup is a pre-requesite on your local dev environment in order to get the LOGIN and SIGN-UP page to work properly.
