@@ -40,7 +40,11 @@
 </html>
 
 <div class="page-header">
-    <h1>Log Attendance</h1>
+    <% if( typeof(authenticatedUser) !== 'undefined' && authenticatedUser != '') { %>
+      <h2>Log Attendance for <b><%= authenticatedUser %></b></h2>
+    <%} else {%>
+      <h2>Log Attendance for <b>unknown user</b></h2>
+    <%}%>
 </div>
 
 

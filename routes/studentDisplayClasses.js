@@ -7,8 +7,8 @@ var classesTable = require('../classes.json');
 
 
 /* Get instructor-dashboard page. */
-router.get('/', function(reg, reg, next){
-    reg.render('studentDisplayClasses', {
+router.get('/', function(req, res, next){
+    res.render('studentDisplayClasses', {
         header: 'Student Display Classes' ,
         classes: classesTable
 
