@@ -21,8 +21,8 @@ router.get('/', function(req, res, next){
     // res.redirect("login");
 
     console.log("User NOT authenticated, accepting for now, until we have GETH setup successfully...");
-    res.render('studentViewClass', {
-        header: 'Student View Class' ,
+    res.render('studentLogAttendance', {
+        header: 'Student Log Attendance' ,
         instructor: inst,
         authenticatedUser: 'Anonymous Student'
     });
