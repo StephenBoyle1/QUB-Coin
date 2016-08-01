@@ -8,10 +8,9 @@ var inst = require('../instructor.json');
 
 /* Get instructor-dashboard page. */
 router.get('/', function(req, res, next){
-  var user = "blank";
   if(req.session.authenticatedUser){
-    res.render('studentViewClass', {
-        header: 'Student View Class' ,
+    res.render('studentLogAttendance', {
+        header: 'Student Log Attendance' ,
         instructor: inst,
         authenticatedUser: req.session.authenticatedUser
     });
@@ -29,5 +28,6 @@ router.get('/', function(req, res, next){
     });
   }
 });
+
 
 module.exports = router;
