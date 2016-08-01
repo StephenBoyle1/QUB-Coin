@@ -11,11 +11,11 @@ var instructorDashboard = require('./routes/instructorDashboard');
 var adminCreateClass = require('./routes/adminCreateClass');
 var login = require('./routes/login');
 var signUp = require('./routes/signUp');
-var studentViewClass = require('./routes/studentViewClass');
+var studentLogAttendance = require('./routes/studentLogAttendance');
 var studentSendPoints = require('./routes/studentSendPoints');
 var adminClassesCreated = require('./routes/adminClassesCreated');
 var studentDisplayClasses = require('./routes/studentDisplayClasses');
-
+var studentWallet = require('./routes/studentWallet');
 
 var app = express();
 
@@ -36,10 +36,11 @@ app.use('/instructorDashboard', instructorDashboard);
 app.use('/adminCreateClass', adminCreateClass);
 app.use('/login', login);
 app.use('/signUp', signUp);
-app.use('/studentViewClass', studentViewClass);
+app.use('/studentLogAttendance', studentLogAttendance);
 app.use('/studentSendPoints', studentSendPoints);
 app.use('/adminClassesCreated', adminClassesCreated);
 app.use('/studentDisplayClasses', studentDisplayClasses);
+app.use('/studentWallet', studentWallet);
 
 
 // catch 404 and forward to error handler

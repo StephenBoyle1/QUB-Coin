@@ -8,8 +8,8 @@ var inst = require('../instructor.json');
 
 /* Get instructor-dashboard page. */
 router.get('/', function(reg, reg, next){
-    reg.render('studentViewClass', {
-        header: 'Student View Class' ,
+    reg.render('studentLogAttendance', {
+        header: 'Student Log Attendance' ,
         instructor: inst
 
     });
