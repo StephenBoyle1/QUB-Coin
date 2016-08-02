@@ -17,7 +17,7 @@ router.get('/', function(req, res, next){
 router.post('/', function(req, res, next){
    if(ethAuth.login(req.body.username, req.body.password)){
      req.session.authenticatedUser = req.body.username;
-     res.status(200).redirect("/studentViewClass");
+     res.status(200).redirect("/studentLogAttendance");
    } else {
      req.session.authenticatedUser = '';
      res.status(401).send({status:'Login failed'});

@@ -23,5 +23,12 @@ There are a couple of digital assets to be considered as of the initial design:
 ## Setting-up a geth node for ethereum using docker
 
 [This page](docs/geth-setup.md) explains the steps required to get an Ethereum Node running in Docker!
+It also explains the steps required to compile and deploy the solidity smart contract to the ethereum chain.
 
 This GETH setup is a pre-requesite on your local dev environment in order to get the LOGIN and SIGN-UP page to work properly.
+
+## Starting up the application in docker:
+
+You can now start the app using docker that way (again from the root folder):
+
+```docker-compose up app```

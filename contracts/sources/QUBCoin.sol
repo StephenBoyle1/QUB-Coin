@@ -23,7 +23,7 @@ contract QUBCoin {
 
   // Stores the instructor details in a static array (only coinBalance will evolve)
   mapping(address => Instructor) public instructors;
-  address private creator;
+  address public creator;
   uint public numInstructors;
 
   modifier creatorOnly(){
@@ -31,7 +31,7 @@ contract QUBCoin {
   }
 
   //Constructor - only run once on creation
-  function QubCoin(){
+  function QUBCoin(){
       creator = msg.sender;
       instructors[addr1] = Instructor(addr1, "instructor1@qub.ac.uk", "Instructor One", 0);
       instructors[addr2] = Instructor(addr2, "instructor2@qub.ac.uk", "Instructor Two", 0);

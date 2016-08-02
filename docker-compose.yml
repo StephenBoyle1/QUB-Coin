@@ -1,0 +1,70 @@
+version: '2'
+
+volumes:
+  chaindata:
+
+networks:
+  main:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+          gatway: 172.21.0.1
+
+services:
+  bootnode:
+    image: ahannigan/geth-dev:bootnode
+    networks:
+      main:
+        ipv4_address: 172.21.0.2
+
+  geth:
+    image: ahannigan/geth-dev:latest
+    volumes:
+      - chaindata:/root/.ethereum
+    networks:
+      - main
+    ports:
+      - "8545:8545"
+    depends_on:
+      - bootnode
+    environment:
+      MINE_WHEN_NEEDED: "true"
+    command:
+      --networkid 90210
+      --port 30303
+      --rpc
+      --rpcport 8545
+      --rpcaddr 0.0.0.0
+      --rpcapi "eth,web3,admin,db,net,miner,personal"
+      --rpccorsdomain="*"
+      --unlock 0,1,2,3,4
+      --password /root/.ethereum/passwords
+
+  contract:
+    image: qubcoin/deploy-contract:latest
+    volumes:
+      - ./contracts/scripts:/scripts
+      - ./contracts/sources:/scripts/sources
+    environment:
+      - GETH_HOST=geth:8545
+    working_dir: /scripts
+    command: ./deploy-contract.sh
+    depends_on:
+      - geth
+    networks:
+      - main
+
+  app:
+    image: node:5.12
+    volumes:
+      - ./:/app
+    working_dir: /app
+    networks:
+      - main
+    ports:
+      - "3000:3000"
+    environment:
+      - GETH_HOST=geth:8545
+    command:
+      /bin/bash -c
+        "npm install && node bin/www"
