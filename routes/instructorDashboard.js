@@ -7,8 +7,8 @@ var inst = require('../instructor.json');
 
 
 /* Get instructor-dashboard page. */
-router.get('/', function(reg, reg, next){
-    reg.render('instructorDashboard', {
+router.get('/', function(req, res, next){
+    res.render('instructorDashboard', {
         header: 'Instructor Dashboard' ,
         instructor: inst
 
