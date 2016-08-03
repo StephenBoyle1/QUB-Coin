@@ -28,7 +28,7 @@ var qubContractInstance = qubContractHandle.new(
     {
         from: web3.eth.accounts[0],
         data: contractObject.bytecode,
-        gas: 3000000
+        gas: 30000000
     }, function(err, contract){
         console.log(err, contract);
         if (typeof contract.address != 'undefined') {
