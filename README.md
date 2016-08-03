@@ -78,3 +78,11 @@ The easiest is to run the app using docker that way (again from the QUB-Coin roo
 ```
 docker-compose up app
 ```
+
+
+### Running unit tests for smart-contract validation
+There is a way to use Jasmine JS, ethereumjs-testrpc (which is a simulator for Ethereum) and docker to run a set of unit tests to prove out changes of the QUBCoin.sol smart contract.
+Please refer to [this file for instruction](contracts/tests/README.md)
+
+These would ideally be run automatically as part of a CI pipeline, but time is against us to get this put in place, 
+but they can still be used locally by developers to increase confidence when changing and validating the contract rather than deploy it fully in GETH and use the app to test it.
