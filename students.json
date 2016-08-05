@@ -1,0 +1,19 @@
+{
+  "studentsEnrolledTable": [{
+    "name": "Linzi Roberts",
+    "year": "1",
+    "classes": "Programming"
+  }, {
+    "name": "Stephen Boyle",
+    "year": "1",
+    "classes": "Programming"
+  }, {
+    "name": "Joe Bloggs",
+    "year": "1",
+    "classes": "Databases"
+  }, {
+    "name": "Peter Puter",
+    "year": "4",
+    "classes": "Android"
+  }]
+}
