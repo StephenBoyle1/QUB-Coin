@@ -6,14 +6,16 @@
  */
 var express = require('express');
 var router = express.Router();
-var inst = require('../instructor.json');
+//var inst = require('../instructor.json');
+var transactionHistoryTable = require('../transactionHistory.json');
 
 
 /* Get instructor-dashboard page. */
 router.get('/', function(req, res, next){
     res.render('studentWallet', {
         header: 'Student Wallet' ,
-        instructor: inst
+
+        classes: transactionHistoryTable
 
     });
 });
