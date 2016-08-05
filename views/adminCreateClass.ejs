@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Admin create classes</title>
@@ -9,6 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -39,7 +40,7 @@
 </nav>
 
 <div class="page-header">
-    <h1>Create Classes</h1>
+    <h1>Create a Class</h1>
 </div>
 
 <form class="form-horizontal" method="POST" action="/contact">
@@ -55,30 +56,12 @@
             <input type="location" class="form-control" id="inputLocation" placeholder="Location">
         </div>
     </div>
+
     <div class="form-group">
-        <label for="inputTime" class="col-sm-2 control-label">Time</label>
+        <label for="inputTime" class="col-sm-2 control-label">Start Time</label>
         <div class="col-xs-4">
             <input type="time" class="form-control" id="inputTime" placeholder="Time">
         </div>
-        <div></div>
-
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="true">
-
-
-                Select Instructor
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <% classes.classesCreatedTable.forEach(function(item){ %>
-                <li><a href="#"><%= item.instructor %></a></li>
-                <% }); %>
-            </ul>
-
-        </div>
-
 
     </div>
     <div class="form-group">
@@ -88,24 +71,34 @@
         </div>
     </div>
 
+    <form class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Instructor</option>
+                <% classes.classesCreatedTable.forEach(function(item){ %>
+                <option><%= item.instructor %></option>
+                <% }); %>
+            </select>
+        </div>
+    </form>
 
-    <div class="btn-group" data-toggle="buttons">
+    <form class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Class Type</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Class Type</option>
+                <option>Lecture</option>
+                <option>Practical</option>
+            </select>
+        </div>
+    </form>
+
+    <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Pratical
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Lecture
-            </label>
-
+            <button type="create" class="btn btn-default">Create</button>
         </div>
-
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="create" class="btn btn-default">Create</button>
-            </div>
-        </div>
+    </div>
 
 
 </form>
