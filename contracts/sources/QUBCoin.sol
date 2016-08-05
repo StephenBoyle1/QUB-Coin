@@ -8,23 +8,34 @@ contract QUBCoin {
 
   struct Instructor{
     address accountId;
-    string email;
-    string name;
+    bytes32 email;
+    bytes32 name;
     uint coinBalance;
   }
 
   struct Student{
     address accountId;
-    string email;
-    string name;
+    bytes32 email;
+    bytes32 name;
     uint attendanceBalance;
     uint coinBalance;
   }
 
   // Stores the instructor details in a static array (only coinBalance will evolve)
   mapping(address => Instructor) public instructors;
-  address public creator;
-  uint public numInstructors;
+
+  // Stores the students details in a static array (only coinBalance and attendanceBalance will evolve)
+  mapping(address => Student) public students;
+
+  // Cant use string for key of a mapping: need to use a fied-length type like bytes32
+  mapping(bytes32 => address) public registeredEmails;
+
+  mapping(uint => address) public instructorsAddresses;
+  mapping(uint => address) public studentsAddresses;
+
+  address private creator;
+  uint public numOfInstructors;
+  uint public numOfStudents;
 
   modifier creatorOnly(){
       if (msg.sender == creator) _
@@ -33,11 +44,25 @@ contract QUBCoin {
   //Constructor - only run once on creation
   function QUBCoin(){
       creator = msg.sender;
-      instructors[addr1] = Instructor(addr1, "instructor1@qub.ac.uk", "Instructor One", 0);
-      instructors[addr2] = Instructor(addr2, "instructor2@qub.ac.uk", "Instructor Two", 0);
-      instructors[addr3] = Instructor(addr3, "instructor3@qub.ac.uk", "Instructor Three", 0);
-      instructors[addr4] = Instructor(addr4, "instructor4@qub.ac.uk", "Instructor Four", 0);
-      instructors[addr5] = Instructor(addr5, "instructor5@qub.ac.uk", "Instructor Five", 0);
-      numInstructors = 5;
+      instructors[addr1] = Instructor(addr1, "instructor1@qub.ac.uk", "Kim Bauters", 0);
+      instructors[addr2] = Instructor(addr2, "instructor2@qub.ac.uk", "Aidan McGowan", 0);
+      numOfInstructors = 2;
+
+      students[addr3] = Student(addr3, "student1@qub.ac.uk", "Linzi Roberts", 0, 0);
+      students[addr4] = Student(addr4, "student2@qub.ac.uk", "Stephen Boyle", 0, 0);
+      students[addr5] = Student(addr5, "student3@qub.ac.uk", "Mike ONeill", 0, 0);
+      numOfStudents = 3;
+
+      registeredEmails["instructor1@qub.ac.uk"] = addr1;
+      registeredEmails["instructor2@qub.ac.uk"] = addr2;
+      registeredEmails["student1@qub.ac.uk"] = addr3;
+      registeredEmails["student2@qub.ac.uk"] = addr4;
+      registeredEmails["student3@qub.ac.uk"] = addr5;
+
+      instructorsAddresses[0] = addr1;
+      instructorsAddresses[1] = addr2;
+      studentsAddresses[0] = addr3;
+      studentsAddresses[1] = addr4;
+      studentsAddresses[2] = addr5;
   }
 }

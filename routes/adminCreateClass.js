@@ -6,8 +6,8 @@ var router = express.Router();
 var classesTable = require('../classes.json');
 
 /* Get instructor-dashboard page. */
-router.get('/', function(reg, reg, next){
-    reg.render('adminCreateclass', {
+router.get('/', function(req, res, next){
+    res.render('adminCreateclass', {
         header: 'adminCreateClass',
         classes: classesTable
 

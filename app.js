@@ -16,7 +16,7 @@ var studentLogAttendance = require('./routes/studentLogAttendance');
 var studentSendPoints = require('./routes/studentSendPoints');
 var adminClassesCreated = require('./routes/adminClassesCreated');
 var studentDisplayClasses = require('./routes/studentDisplayClasses');
-
+var studentWallet = require('./routes/studentWallet');
 
 var app = express();
 
@@ -46,6 +46,7 @@ app.use('/studentLogAttendance', studentLogAttendance);
 app.use('/studentSendPoints', studentSendPoints);
 app.use('/adminClassesCreated', adminClassesCreated);
 app.use('/studentDisplayClasses', studentDisplayClasses);
+app.use('/studentWallet', studentWallet);
 
 
 // catch 404 and forward to error handler

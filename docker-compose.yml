@@ -41,14 +41,14 @@ services:
       --password /root/.ethereum/passwords
 
   contract:
-    image: qubcoin/deploy-contract:latest
+    image: ikruiper/deploy-qubcoin-contract:latest
     volumes:
       - ./contracts/scripts:/scripts
       - ./contracts/sources:/scripts/sources
     environment:
       - GETH_HOST=geth:8545
     working_dir: /scripts
-    command: ./deploy-contract.sh
+    command: node deploy_contract.js
     depends_on:
       - geth
     networks:
@@ -65,6 +65,7 @@ services:
       - "3000:3000"
     environment:
       - GETH_HOST=geth:8545
+      - QUB_COIN_ADDRESS=0xe9207253d02f964395dac5fa796a298761518f31
     command:
       /bin/bash -c
         "npm install && node bin/www"
