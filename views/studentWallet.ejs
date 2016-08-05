@@ -11,7 +11,8 @@
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Brand and toggle grouped for better mobile display -->
         <div class="navbar-header">
 
 
@@ -45,16 +46,21 @@
 
 <img src="images/qublogo.png" height="200" style="max-width: 300px">
 
+
 <div class="page-header">
     <h1>Student Wallet</h1>
 </div>
 
 
+
+
+<a type="button" class="btn btn-primary" href="studentDisplayClasses">Display Classes</a>
+<a type="button" class="btn btn-primary" href="studentLogAttendance">Log Attendance</a>
+
+
 <h3> Current Balance: <span class="label label-default"></span></h3>
 
 <h3>Transaction History <span class="label label-default"></span></h3>
-
-<h3>General Coins <span class="label label-default"></span></h3>
 
 <table class="table table-striped" dir="ltr" width="500" border="1"
        summary="purpose/structure for speech output">
@@ -66,7 +72,7 @@
     <thead>
     <thead class="table table-striped">
     <tr>
-        <th scope="col">Balance History</th>
+        <th scope="col">Balance History (General Coins)</th>
         <th scope="col">To</th>
         <th scope="col">From</th>
         <th scope="col">Time Stamp</th>
@@ -75,6 +81,7 @@
     <tfoot>
     <tr>
 
+        <!--loop through table and populate JSON data -->
         <% classes.transactionHistoryTable.forEach(function (item) { %>
 
         <td><%= item.balancehistory %></td>
@@ -111,7 +118,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <title>Bootstrap Tutorial</title>
+
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
@@ -141,9 +148,6 @@
         </td>
         <th class="text-center">TimeStamp
         </td>
-
-
-
 
 
         <tr>

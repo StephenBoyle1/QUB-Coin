@@ -42,27 +42,80 @@
     <h1>Send Coins</h1>
 </div>
 
-<form class="form-horizontal">
+<form class="form-horizontal" method="POST" action="/contact">
+    <div class="form-group">
 
+        <div class="col-xs-4">
+
+        </div>
+    </div>
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Points</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Amount of Points</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Class Type</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Class Type</option>
+                <option>Lecture</option>
+                <option>Practical</option>
+            </select>
+        </div>
+    </div>
 
     <div class="form-group">
-        <label for="inputDate" class="col-sm-2 control-label">Select class lecture/pratical</label>
+        <label for="inputDate" class="col-sm-2 control-label">Select Which Class</label>
         <div class="col-xs-4">
             <input type="date" class="form-control" id="inputDate" placeholder="Date">
         </div>
     </div>
-    <div class="form-group">
-        <label for="inputStudents" class="col-sm-2 control-label">Select Instructor</label>
-        <div class="col-xs-4">
-            <input type="number" class="form-control" id="inputStudents" placeholder="Name">
+
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Instructor</option>
+
+
+
+            </select>
         </div>
     </div>
 
 
     <div class="form-group">
-        <label for="inputLocation" class="col-sm-2 control-label">Location</label>
-        <div class="col-xs-4">
-            <input type="location" class="form-control" id="inputLocation" placeholder="Location">
+
+
+    </div>
+
+    <div class="form-group" role="form">
+
+
+
+    <div class="form-group" role="form">
+
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a type="send" class="btn btn-primary" href="/studentLogAttendance">Send</a>
         </div>
     </div>
 
@@ -70,18 +123,3 @@
 </form>
 </body>
 </html>
-
-
-</p>
-<form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="exampleInputAmount"></label>
-        <div class="input-group">
-            <div class="input-group-addon"></div>
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-            <div class="input-group-addon"></div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Send Coins</button>
-</form>
-</p>
