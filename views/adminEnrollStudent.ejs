@@ -2,14 +2,13 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Create Classes</title>
+    <title>Admin Enroll Student</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -37,63 +36,36 @@
 </nav>
 
 <div class="page-header">
-    <h1>Create a Class</h1>
+    <h1>Enroll a Student</h1>
 </div>
 
 <form class="form-horizontal" method="POST" action="/contact">
     <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <label for="inputName" class="col-sm-2 control-label">Student Name</label>
         <div class="col-xs-4">
             <input type="name" class="form-control" id="inputName" placeholder="Name">
         </div>
     </div>
     <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Location</label>
+        <label for="inputInstructor" class="col-sm-2 control-label">Year</label>
         <div class="col-xs-4 ">
             <select class="form-control"><
-                <option>Select Location</option>
-                <option>Room 1</option>
-                <option>Room 2</option>
-                <option>Lab 1</option>
-                <option>Lab 2</option>
+                <option>Select Year</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
             </select>
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="inputTime" class="col-sm-2 control-label">Start Time</label>
-        <div class="col-xs-4">
-            <input type="time" class="form-control" id="inputTime" placeholder="Time">
-        </div>
-    </div>
-
     <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Duration</label>
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Class</label>
         <div class="col-xs-4 ">
             <select class="form-control"><
-                <option>Select Duration</option>
-                <option>1 hour</option>
-                <option>2 hours</option>
-                <option>3 hours</option>
-            </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label for="inputDate" class="col-sm-2 control-label">Date</label>
-        <div class="col-xs-4">
-            <input type="date" class="form-control" id="inputDate" placeholder="Date">
-        </div>
-    </div>
-
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
-        <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Select Instructor</option>
+                <option>Select Class</option>
                 <% classes.classesCreatedTable.forEach(function(item){ %>
-                <option><%= item.instructor %></option>
+                <option><%= item.className %></option>
                 <% }); %>
             </select>
         </div>
@@ -112,11 +84,9 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <a type="create" class="btn btn-primary" href="/adminClassesCreated">Create</a>
+            <a type="create" class="btn btn-primary" href="/adminStudentsEnrolled">Enroll</a>
         </div>
     </div>
-
-
 </form>
 </body>
 </html>
