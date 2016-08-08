@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
 </head>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -20,20 +22,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">QUB Coin</a>
+            <a class="navbar-brand" href="/homePage">Home Page</a>
+
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav" >
-
-                <li><a href="/studentViewClass">Classes</a></li>
-
-
-                <li><a href="studentSendPoints">Coins</a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="/studentWallet">Wallet</a></li>
+                <li class="active"><a href="/studentDisplayClasses">Display classes <span class="sr-only">(current)</span></a></li>
+                <li><a href="/studentLogAttendance">Log Attendance</a></li>
+                <li><a href="/studentSendPoints">Send Coins</a></li>
             </ul>
-        </div>
-    </div>
+
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 </html>
 
@@ -115,9 +120,26 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <a type="send" class="btn btn-primary" href="/studentLogAttendance">Send</a>
+            <a type="send" class="btn btn-primary" >Send</a>
         </div>
+
+
+
     </div>
+
+        <body>
+        <div class="container">
+
+
+
+            <!-- Adding in validation message (need to sort out on button click)-->
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Your coins have been sent successfully
+            </div>
+
+        </div>
+        </body>
 
 
 </form>
