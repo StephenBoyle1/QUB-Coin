@@ -8,6 +8,7 @@ var session=require('express-session');
 
 
 var routes = require('./routes/index');
+var homePage = require('./routes/homePage');
 var instructorDashboard = require('./routes/instructorDashboard');
 var adminCreateClass = require('./routes/adminCreateClass');
 var login = require('./routes/login');
@@ -40,6 +41,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/homePage', homePage);
 app.use('/instructorDashboard', instructorDashboard);
 app.use('/adminCreateClass', adminCreateClass);
 app.use('/login', login);
