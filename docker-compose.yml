@@ -65,7 +65,7 @@ services:
       - "3000:3000"
     environment:
       - GETH_HOST=geth:8545
-      - QUB_COIN_ADDRESS=0xe9207253d02f964395dac5fa796a298761518f31
+      - QUB_COIN_ADDRESS=0xfdccaa886d3dfdf1a157ad605ea4185d2f420a52
     command:
       /bin/bash -c
         "npm install && node bin/www"

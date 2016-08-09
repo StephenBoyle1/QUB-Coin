@@ -15,20 +15,17 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    if (ethAuth.login(req.body.username, req.body.password)) {
-        req.session.authenticatedUser = req.body.username;
+    var user = ethAuth.login(req.body.username, req.body.password);
+    if (user) {
+        req.session.authenticatedUsername = user.email;
+        req.session.authenticatedUser = user;
         res.status(200).redirect("/homePage");
-
     } else {
-
         req.session.authenticatedUser = '';
+        req.session.authenticatedUser = null;
         res.status(401).send({status: 'You have entered the wrong username or password'});
-        res.locals.errors = req.flash('error');
-
-
+        // res.locals.errors = req.flash('error');
     }
-
-
 });
 
-module.exports = router
+module.exports = router;

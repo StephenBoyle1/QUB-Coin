@@ -8,10 +8,11 @@ var inst = require('../instructor.json');
 
 /* Get instructor-dashboard page. */
 router.get('/', function(req, res, next){
-  if(req.session.authenticatedUser && req.session.authenticatedUser != ''){
+  if(req.session.authenticatedUsername && req.session.authenticatedUsername != ''){
     res.render('studentLogAttendance', {
         header: 'Student Log Attendance' ,
         instructor: inst,
+        authenticatedUsername: req.session.authenticatedUsername,
         authenticatedUser: req.session.authenticatedUser
     });
   } else {

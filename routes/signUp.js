@@ -15,8 +15,9 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
   try{
-    var newRegisteredAccount = ethAuth.registerUser(req.body.email, req.body.password);
+    var newRegisteredAccount = ethAuth.registerUser(req.body.name, req.body.email, req.body.password, true);
     req.session.authenticatedUser = newRegisteredAccount;
+    req.session.authenticatedUsername = newRegisteredAccount.email;
     res.status(201).redirect("/studentViewClass");
   } catch(error){
     console.log("Failed to register new account for [%s], error: %s", req.body.email, error);

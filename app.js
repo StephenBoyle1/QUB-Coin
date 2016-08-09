@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var session=require('express-session');
 
 
-var routes = require('./routes/index');
 var homePage = require('./routes/homePage');
 var instructorDashboard = require('./routes/instructorDashboard');
 var adminCreateClass = require('./routes/adminCreateClass');
@@ -41,7 +40,7 @@ app.use(session({
 );
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', homePage);
 app.use('/homePage', homePage);
 app.use('/instructorDashboard', instructorDashboard);
 app.use('/adminCreateClass', adminCreateClass);
@@ -59,9 +58,10 @@ app.use('/instructorDisplayClasses', instructorDisplayClasses);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  // var err = new Error('Not Found');
+  // err.status = 404;
+  // next(err);
+  res.status(404).send('Sorry cant find that!');
 });
 
 // error handlers

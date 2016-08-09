@@ -42,8 +42,8 @@
 </html>
 
 <div class="page-header">
-    <% if( typeof(authenticatedUser) !== 'undefined' && authenticatedUser != '') { %>
-      <h2>Log Attendance for <b><%= authenticatedUser %></b></h2>
+    <% if( typeof(authenticatedUsername) !== 'undefined' && authenticatedUsername != '') { %>
+      <h2>Log Attendance for <b><%= authenticatedUsername %></b></h2>
     <%} else {%>
       <h2>Log Attendance for <b>unknown user</b></h2>
     <%}%>

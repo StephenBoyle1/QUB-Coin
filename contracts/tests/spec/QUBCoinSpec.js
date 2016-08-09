@@ -32,7 +32,7 @@ describe("Basic QUBCoin test", function() {
   });
 
   it("should be able to retrieve first instructor", function() {
-    var instructor = theContract.instructors(FIRST_ACCOUNT);
+    var instructor = theContract.users(FIRST_ACCOUNT);
     console.log('Object of known account = ' + instructor);
 
     expect(instructor).toBeDefined();
@@ -41,16 +41,20 @@ describe("Basic QUBCoin test", function() {
     var accountId = instructor[0].toString();
     var email = gethWrapper.bytesToString(instructor[1]);
     var name = gethWrapper.bytesToString(instructor[2]);
-    var coinBalance = parseInt(instructor[3]);
+    var attendanceBalance = parseInt(instructor[3]);
+    var feedbackBalance = parseInt(instructor[4]);
+    var isStudent = instructor[5];
 
     expect(accountId).toEqual(FIRST_ACCOUNT);
     expect(email).toEqual('instructor1@qub.ac.uk');
     expect(name).toEqual('Kim Bauters');
-    expect(coinBalance).toEqual(0);
+    expect(attendanceBalance).toEqual(0);
+    expect(feedbackBalance).toEqual(0);
+    expect(isStudent).toEqual(false);
   });
 
   it("should be able to retrieve first student", function() {
-    var student = theContract.students(THIRD_ACCOUNT);
+    var student = theContract.users(THIRD_ACCOUNT);
     console.log('Object of known account = ' + student);
 
     expect(student).toBeDefined();
@@ -60,18 +64,31 @@ describe("Basic QUBCoin test", function() {
     var email = gethWrapper.bytesToString(student[1]);
     var name = gethWrapper.bytesToString(student[2]);
     var attendanceBalance = parseInt(student[3]);
-    var coinBalance = parseInt(student[4]);
+    var feedbackBalance = parseInt(student[4]);
+    var isStudent = student[5];
 
     expect(accountId).toEqual(THIRD_ACCOUNT);
     expect(email).toEqual('student1@qub.ac.uk');
     expect(name).toEqual('Linzi Roberts');
     expect(attendanceBalance).toEqual(0);
-    expect(coinBalance).toEqual(0);
+    expect(feedbackBalance).toEqual(0);
+    expect(isStudent).toEqual(true);
   });
 
-  it("should be able to access registeredAddress", function() {
+  it("should be able to access studentAddresses mapping", function() {
     var studentAddr1 = theContract.studentsAddresses(0);
     console.log('Object of registered address = ' + studentAddr1);
+    var student = theContract.users(studentAddr1);
+    expect(student[5]).toEqual(true);
+  });
+
+  it("should be able to access student details via their emailAddress", function() {
+    var studentAddr1 = theContract.registeredEmails('student1@qub.ac.uk');
+    console.log('registered address for student1 = ' + studentAddr1);
+    var student = theContract.users(studentAddr1);
+    expect(student[0].toString()).toEqual(studentAddr1);
+    expect(student[0].toString()).toEqual(THIRD_ACCOUNT);
+    expect(student[5]).toEqual(true);
   });
 
 });

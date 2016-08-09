@@ -6,26 +6,17 @@ contract QUBCoin {
   address constant addr4 = 0x51adcda2c9b234853498efd83903cf250175ca40;
   address constant addr5 = 0x9ec6e19e025e4bc7225758032585fb26ebf8de79;
 
-  struct Instructor{
-    address accountId;
-    bytes32 email;
-    bytes32 name;
-    uint coinBalance;
-  }
-
-  struct Student{
+  struct User{
     address accountId;
     bytes32 email;
     bytes32 name;
     uint attendanceBalance;
-    uint coinBalance;
+    uint feedbackBalance;
+    bool isStudent;
   }
 
-  // Stores the instructor details in a static array (only coinBalance will evolve)
-  mapping(address => Instructor) public instructors;
-
-  // Stores the students details in a static array (only coinBalance and attendanceBalance will evolve)
-  mapping(address => Student) public students;
+  // Stores the instructor and students details in a static array (only Balances will evolve)
+  mapping(address => User) public users;
 
   // Cant use string for key of a mapping: need to use a fied-length type like bytes32
   mapping(bytes32 => address) public registeredEmails;
@@ -44,13 +35,13 @@ contract QUBCoin {
   //Constructor - only run once on creation
   function QUBCoin(){
       creator = msg.sender;
-      instructors[addr1] = Instructor(addr1, "instructor1@qub.ac.uk", "Kim Bauters", 0);
-      instructors[addr2] = Instructor(addr2, "instructor2@qub.ac.uk", "Aidan McGowan", 0);
+      users[addr1] = User(addr1, "instructor1@qub.ac.uk", "Kim Bauters", 0, 0, false);
+      users[addr2] = User(addr2, "instructor2@qub.ac.uk", "Aidan McGowan", 0, 0, false);
       numOfInstructors = 2;
 
-      students[addr3] = Student(addr3, "student1@qub.ac.uk", "Linzi Roberts", 0, 0);
-      students[addr4] = Student(addr4, "student2@qub.ac.uk", "Stephen Boyle", 0, 0);
-      students[addr5] = Student(addr5, "student3@qub.ac.uk", "Mike ONeill", 0, 0);
+      users[addr3] = User(addr3, "student1@qub.ac.uk", "Linzi Roberts", 0, 0, true);
+      users[addr4] = User(addr4, "student2@qub.ac.uk", "Stephen Boyle", 0, 0, true);
+      users[addr5] = User(addr5, "student3@qub.ac.uk", "Mike ONeill", 0, 0, true);
       numOfStudents = 3;
 
       registeredEmails["instructor1@qub.ac.uk"] = addr1;

@@ -46,9 +46,8 @@
 
 
 <div class="page-header">
-    <h1>Student Wallet</h1>
+    <h1><%= authenticatedUser.name %> Wallet</h1>
 </div>
-
 
 
 
@@ -56,7 +55,8 @@
 <a type="button" class="btn btn-primary" href="studentLogAttendance">Log Attendance</a>
 
 
-<h3> Current Balance: <span class="label label-default"></span></h3>
+<h3>Current Attendance Balance: <span class="label label-default"><%= authenticatedUser.attendanceBalance %></span></h3>
+<h3>Current Feedback Balance: <span class="label label-default"><%= authenticatedUser.feedbackBalance %></span></h3>
 
 <h3>Transaction History <span class="label label-default"></span></h3>
 
