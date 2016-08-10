@@ -39,54 +39,42 @@
     <h1>Enroll a Student</h1>
 </div>
 
-<form class="form-horizontal" method="POST" action="/contact">
-    <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Student Name</label>
-        <div class="col-xs-4">
-            <input type="name" class="form-control" id="inputName" placeholder="Name">
-        </div>
-    </div>
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Year</label>
-        <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Select Year</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-        </div>
-    </div>
+<table class="table table-striped" dir="ltr" width="500" border="1"
+       summary="purpose/structure for speech output">
 
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Class</label>
-        <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Select Class</option>
-                <% classes.classesCreatedTable.forEach(function(item){ %>
-                <option><%= item.className %></option>
-                <% }); %>
-            </select>
-        </div>
-    </div>
 
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Class Type</label>
-        <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Select Class Type</option>
-                <option>Lecture</option>
-                <option>Practical</option>
-            </select>
-        </div>
-    </div>
+    <colgroup id="colgroup" class="colgroup" align="center"
+              valign="middle" title="title" width="30%"
+              span="2"/>
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Select</th>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <a type="create" class="btn btn-primary" href="/adminStudentsEnrolled">Enroll</a>
-        </div>
-    </div>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <% students.studentsEnrolledTable.forEach(function(item){ %>
+        <td><%= item.name %></td>
+        <td>
+            <input type="checkbox" name="option1">
+        </td>
+
+
+    </tr>
+    </tfoot>
+    <tbody>
+
+    <% }); %>
+    </tbody>
+</table>
+
+<div class="form-group">
+
+    <a type="create" class="btn btn-primary" href="/adminStudentsEnrolled">Enroll</a>
+
+</div>
 </form>
 </body>
 </html>

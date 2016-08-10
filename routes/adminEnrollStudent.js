@@ -3,12 +3,14 @@
  */
 var express = require('express');
 var router = express.Router();
+var studentsTable = require('../students.json');
 var classesTable = require('../classes.json');
 //var html = new EJS({url: 'instructorDashboard.ejs'}).render(data);
 
 /* Get adminClassesCreated page. */
 router.get('/', function(req, res){
     res.render('adminEnrollStudent', {
+        students: studentsTable,
         classes: classesTable
 
     });
