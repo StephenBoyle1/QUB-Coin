@@ -29,7 +29,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/studentWallet">Wallet</a></li>
-                <li class="active"><a href="/studentDisplayClasses">Display classes <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/studentDisplayClasses">Display classes <span
+                                class="sr-only">(current)</span></a></li>
                 <li><a href="/studentLogAttendance">Log Attendance</a></li>
                 <li><a href="/studentSendPoints">Send Coins</a></li>
             </ul>
@@ -42,7 +43,7 @@
 </html>
 
 
-<div class="page-header">
+<div class="text-primary page-header">
     <h1>View Classes</h1>
 </div>
 
@@ -62,8 +63,7 @@
         <th scope="col">Location</th>
         <th scope="col">Instructor</th>
         <th scope="col">Class Type</th>
-
-
+        <th scope="col">Select</th>
 
 
     </tr>
@@ -77,6 +77,9 @@
         <td><%= item.location %></td>
         <td><%= item.instructor %></td>
         <td><%= item.classType %></td>
+        <td>
+            <input type="checkbox" name="option1" onchange="window.location.href='studentSendPoints'">
+        </td>
 
 
     </tr>
@@ -89,12 +92,6 @@
 
 <div class="btn-group" role="group" aria-label="...">
 
-
-
-
-
-
-    <a type="button" class="btn btn-primary" href="studentSendPoints">send</a>
 
 </div>
 
