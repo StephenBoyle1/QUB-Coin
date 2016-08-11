@@ -20,7 +20,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+
             </button>
             <a class="navbar-brand" href="/homePage">Home Page</a>
 
@@ -31,9 +31,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/studentWallet">Wallet</a></li>
-                <li class="active"><a href="/studentDisplayClasses">Display classes <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/studentDisplayClasses">Display classes <span
+                                class="sr-only">(current)</span></a></li>
                 <li><a href="/studentLogAttendance">Log Attendance</a></li>
-                <li><a href="/studentSendPoints">Send Coins</a></li>
+
             </ul>
 
 
@@ -43,7 +44,7 @@
 </html>
 
 
-<div class="page-header">
+<div class="text-primary page-header">
     <h1>Send Coins</h1>
 </div>
 
@@ -73,75 +74,55 @@
         </div>
     </div>
 
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Class Type</label>
-        <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Select Class Type</option>
-                <option>Lecture</option>
-                <option>Practical</option>
-            </select>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label for="inputDate" class="col-sm-2 control-label">Select Which Class</label>
-        <div class="col-xs-4">
-            <input type="date" class="form-control" id="inputDate" placeholder="Date">
-        </div>
-    </div>
 
     <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
+        <label for="inputInstructor" class="col-sm-2 control-label">Choose Your Feedback</label>
         <div class="col-xs-4 ">
             <select class="form-control"><
-                <option>Select Instructor</option>
-
+                <option>Feedback</option>
 
 
             </select>
-        </div>
-    </div>
 
 
-    <div class="form-group">
+            <div class="form-group">
 
 
-    </div>
-
-    <div class="form-group" role="form">
-
-
-
-    <div class="form-group" role="form">
-
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <a type="send" class="btn btn-primary" >Send</a>
-        </div>
-
-
-
-    </div>
-
-        <body>
-        <div class="container">
-
-
-
-            <!-- Adding in validation message (need to sort out on button click)-->
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                Your coins have been sent successfully
             </div>
 
-        </div>
-        </body>
+            <div class="form-group" role="form">
+
+
+                <div class="form-group" role="form">
+
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a type="send" class="btn btn-primary">Send</a>
+                    </div>
+
+
+                </div>
+
+                <body>
+                <div class="container">
+
+
+                    <!-- Adding in validation message (need to sort out on button click)-->
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Your coins have been sent successfully
+                    </div>
+
+                </div>
+                </body>
 
 
 </form>
+
+
 </body>
 </html>

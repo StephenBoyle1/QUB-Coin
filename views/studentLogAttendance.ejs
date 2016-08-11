@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>student</title>
+    <title>Admin Create Classes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
+<body>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -18,7 +19,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+
             </button>
             <a class="navbar-brand" href="/homePage">Home Page</a>
 
@@ -29,56 +30,111 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/studentWallet">Wallet</a></li>
-                <li class="active"><a href="/studentDisplayClasses">Display classes <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/studentDisplayClasses">Display classes <span
+                                class="sr-only">(current)</span></a></li>
                 <li><a href="/studentLogAttendance">Log Attendance</a></li>
-                <li><a href="/studentSendPoints">Send Coins</a></li>
+
             </ul>
 
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<!-- Commenting all this out so I can access this page to make changes-->
+<% if( typeof(authenticatedUsername) !== 'undefined' && authenticatedUsername != '') { %>
+<!--  --><h2>Log Attendance for <b><%= authenticatedUsername %></b></h2>
+<!--  -->
+<% } else { %>
+
+<!--  -->
+<% } %>
+<!--  --></div>
+
+<div class="page-header text-primary">
+    <h1>Log Your Attendance</h1>
+</div>
+
+
+<form class="form-horizontal" method="POST" action="/contact">
+    <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <div class="col-xs-4">
+            <input type="name" class="form-control" id="inputName" placeholder="Name">
+        </div>
+    </div>
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Location</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Location</option>
+                <option>Room 1</option>
+                <option>Room 2</option>
+                <option>Lab 1</option>
+                <option>Lab 2</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputTime" class="col-sm-2 control-label">Start Time</label>
+        <div class="col-xs-4">
+            <input type="time" class="form-control" id="inputTime" placeholder="Time">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">Date</label>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="inputDate" placeholder="Date">
+        </div>
+    </div>
+
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Instructor</option>
+                <% classes.classesCreatedTable.forEach(function(item){ %>
+                <option><%= item.instructor %></option>
+                <% }); %>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group" role="form">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Class Type</label>
+        <div class="col-xs-4 ">
+            <select class="form-control"><
+                <option>Select Class Type</option>
+                <option>Lecture</option>
+                <option>Practical</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputNumber" class="col-sm-2 control-label">Secret Number</label>
+        <div class="col-xs-4">
+            <input type="number" class="form-control" id="inputNumber" placeholder="Secret Number Given By Instructor">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a type="Log Attendance" class="btn btn-primary" >Log Attendance</a>
+        </div>
+    </div>
+
+    <!-- Adding in validation message (need to sort out on button click)-->
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Your have successfully logged you attendance
+    </div>
+
+
+</form>
 </body>
 </html>
-
-<div class="page-header">
-    <% if( typeof(authenticatedUsername) !== 'undefined' && authenticatedUsername != '') { %>
-      <h2>Log Attendance for <b><%= authenticatedUsername %></b></h2>
-    <%} else {%>
-      <h2>Log Attendance for <b>unknown user</b></h2>
-    <%}%>
-</div>
-
-
-<form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="exampleInputEmail3">Email address</label>
-        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Email">
-    </div>
-
-
-    </div>
-    <button type="submit" class="btn btn-default">Search</button>
-</form>
-
-
-<div></div>
-
-
-<form class="form-inline">
-
-
-
-
-    <div class="form-group">
-        <label for="inputPassword2" class="sr-only">Enter unique class code</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="Enter unique code">
-    </div>
-
-</form>
-
-<div class="btn-group" role="group" aria-label="...">
-
-    <button type="submit" class="btn btn-default">Log attendance</button>
-
-</div>
