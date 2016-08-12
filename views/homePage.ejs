@@ -3,8 +3,6 @@
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
-
-
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -31,9 +29,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/studentWallet">Wallet</a></li>
-                <li class="active"><a href="/studentDisplayClasses">Display classes <span class="sr-only">(current)</span></a></li>
+
+                <li><a href="/studentDisplayClasses">Display Classes</a></li>
                 <li><a href="/studentLogAttendance">Log Attendance</a></li>
-                <li><a href="/studentSendPoints">Send Coins</a></li>
+
             </ul>
 
 
@@ -47,10 +46,14 @@
         <img src="images/qubimage.png" alt="Queens" style="width:1300px;height:400px;">
 
         <div class="banner__caption-banner light">
-            <h2 class="alt">Welcome To Queen's University Coin</h2>
+            <h1 class="text-primary">Welcome To Queen's University Coin</h1>
 
 
-            <h3>Anonymous Student Feedback</h3>
+            <h4>
+
+                <large class="text-muted">Anonymous Student Feedback</large>
+
+            </h4>
             <p></p>
         </div>
 
@@ -75,7 +78,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <title>Bootstrap Tutorial</title>
+
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
@@ -92,6 +95,7 @@
 
             <!-- We can collapse or hide data on the screen -->
             <h4><a href="#col1Content" data-toggle="collapse">QUB Coin </a></h4>
+
 
             <!-- With collapse in this div shows on load -->
             <div id="col1Content" class="collapse in">The system will allocate a points based system that can be used to
@@ -118,40 +122,21 @@
             <div id="col3Content" class="collapse">To encourage more students to engage with they system, there will be
                 two types of coins; general coins for sending to instructors and proof of concept personal coins that
                 will enable students to send to their peers and buy from a vendor. Click on your wallet to view your
-                coin balance you can also view the classes you are enrolled on log you attendance and send points to the
-                instructor of your choice
+                coin balance you can also view the classes you are enrolled on log you attendance and send points to
+                the instructor of your choice
             </div>
         </div>
     </div>
 </div>
 <br>
 
-<!-- Show / Hide elements based on screen size -->
-<div class="container">
 
-    <div class="well hidden-sm hidden-md hidden-lg">
-        <p>Screen &lt; 768px</p>
-    </div>
-
-    <div class="well hidden-md hidden-lg">
-        <p>Screen &gt;= 768px and &lt; 992px</p>
-    </div>
-
-    <div class="well hidden-lg">
-        <p>Screen &gt;= 992px and &lt; 1200px</p>
-    </div>
-
-
-</div>
 <br>
 
 <div class="container">
 
-    <!-- You can constrain the columns if you want -->
-    <div class="row">
 
-        <!-- We could move it to the right with a blank div
-        <div class="col-md-6"></div> -->
+    <div class="row">
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

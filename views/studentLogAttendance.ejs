@@ -19,7 +19,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-
+                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/homePage">Home Page</a>
 
@@ -30,8 +30,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/studentWallet">Wallet</a></li>
-                <li class="active"><a href="/studentDisplayClasses">Display classes <span
-                                class="sr-only">(current)</span></a></li>
+
+                <li><a href="/studentDisplayClasses">Display Classes</a></li>
                 <li><a href="/studentLogAttendance">Log Attendance</a></li>
 
             </ul>
@@ -41,15 +41,12 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<!-- Commenting all this out so I can access this page to make changes-->
 <% if( typeof(authenticatedUsername) !== 'undefined' && authenticatedUsername != '') { %>
-<!--  --><h2>Log Attendance for <b><%= authenticatedUsername %></b></h2>
-<!--  -->
+<h2>Log Attendance for <b><%= authenticatedUsername %></b></h2>
+
 <% } else { %>
 
-<!--  -->
 <% } %>
-<!--  --></div>
 
 <div class="page-header text-primary">
     <h1>Log Your Attendance</h1>
@@ -124,7 +121,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <a type="Log Attendance" class="btn btn-primary" >Log Attendance</a>
+            <a type="Log Attendance" class="btn btn-primary">Log Attendance</a>
         </div>
     </div>
 
