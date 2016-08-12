@@ -69,6 +69,7 @@
     <thead class="table table-striped">
     <tr>
         <th scope="col">Balance History (Attendance Coins)</th>
+        <th scope="col">Amount Transfered</th>
         <th scope="col">To</th>
         <th scope="col">From</th>
         <th scope="col">Time Stamp</th>
@@ -81,6 +82,7 @@
         <% classes.transactionHistoryTable.forEach(function (item) { %>
 
         <td><%= item.balancehistory %></td>
+        <td><%= item.amounttransfered %></td>
         <td><%= item.to %></td>
         <td><%= item.from %></td>
         <td><%= item.timestamp %></td>

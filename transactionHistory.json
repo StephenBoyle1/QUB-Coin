@@ -1,6 +1,7 @@
 {
   "transactionHistoryTable": [{
     "balancehistory": "55",
+    "amounttransfered":"5",
     "to": "",
     "from": "Stephen",
     "timestamp": "11/07/2016 11:00:00",
@@ -8,108 +9,126 @@
 
   }, {
     "balancehistory": "50",
+    "amounttransfered":"5",
     "to": "Chris",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "45",
+    "amounttransfered":"5",
     "to": "Stephen",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "40",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "35",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "30",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "25",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "20",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "30",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "25",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "20",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "15",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "10",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "15",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "20",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "15",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "15",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "10",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
     "instructorname": "Aidan McGowan"
   }, {
     "balancehistory": "5",
+    "amounttransfered":"5",
     "to": "Aidan",
     "from": "",
     "timestamp": "11/07/2016 11:00:00",
