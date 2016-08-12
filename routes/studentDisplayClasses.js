@@ -3,15 +3,15 @@
  */
 var express = require('express');
 var router = express.Router();
-var classesTable = require('../classes.json');
-
+var ethClasses = require('../lib/classes.js');
 
 /* Get instructor-dashboard page. */
 router.get('/', function(req, res, next){
     res.render('studentDisplayClasses', {
         header: 'Student Display Classes' ,
-        classes: classesTable
-
+        // TODO: re-enable the getClassesFor(user) once the enrollment is working
+        // classes: ethClasses.getClassesFor(req.session.authenticatedUser)
+        classes: ethClasses.getAllClasses()
     });
 });
 

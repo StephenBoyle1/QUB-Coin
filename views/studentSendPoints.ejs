@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
 </head>
 
+<body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,26 +40,33 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-</html>
+
 
 
 <div class="text-primary page-header">
     <h1>Send Coins</h1>
 </div>
 
-<form class="form-horizontal" method="POST" action="/contact">
+<form class="form-horizontal" method="POST" action="/contact" role="form">
+
     <div class="form-group">
-
+        <label for="className" class="col-sm-2 control-label">Class Name</label>
         <div class="col-xs-4">
-
+            <input name="className" type="text" class="form-control" placeholder="Name" value="<%= theClass.name %>" readonly>
         </div>
     </div>
-    <div class="form-group" role="form">
-        <label for="inputInstructor" class="col-sm-2 control-label">Select Points</label>
+    <div class="form-group">
+        <label for="classInstructor" class="col-sm-2 control-label">Class Instructor</label>
+        <div class="col-xs-4">
+            <input name="classInstructor" type="text" class="form-control" value="<%= theClass.instructor %>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="pointsAmount" class="col-sm-2 control-label">Select Amount of Points</label>
         <div class="col-xs-4 ">
-            <select class="form-control"><
-                <option>Amount of Points</option>
-                <option>1</option>
+            <select name="pointsAmount" class="form-control">
+                <option value="1" selected>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -74,55 +80,30 @@
         </div>
     </div>
 
-
-
-    <div class="form-group" role="form">
+    <div class="form-group">
         <label for="inputInstructor" class="col-sm-2 control-label">Choose Your Feedback</label>
         <div class="col-xs-4 ">
             <select class="form-control"><
                 <option>Feedback</option>
-
-
             </select>
+        </div>
+    </div>
 
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a type="send" class="btn btn-primary">Send</a>
+        </div>
+    </div>
 
-            <div class="form-group">
-
-
-            </div>
-
-            <div class="form-group" role="form">
-
-
-                <div class="form-group" role="form">
-
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <a type="send" class="btn btn-primary">Send</a>
-                    </div>
-
-
-                </div>
-
-                <body>
-                <div class="container">
-
-
-                    <!-- Adding in validation message (need to sort out on button click)-->
-                    <div class="alert alert-success alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        Your coins have been sent successfully
-                    </div>
-
-                </div>
-                </body>
-
+    <div class="container">
+    <!-- Adding in validation message (need to sort out on button click)-->
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Your coins have been sent successfully
+        </div>
+    </div>
 
 </form>
-
 
 </body>
 </html>
