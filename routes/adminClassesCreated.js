@@ -3,14 +3,13 @@
  */
 var express = require('express');
 var router = express.Router();
-var classesTable = require('../classes.json');
-//var html = new EJS({url: 'instructorDashboard.ejs'}).render(data);
+var ethClasses = require('../lib/classes.js');
+
 
 /* Get adminClassesCreated page. */
 router.get('/', function(req, res, next){
     res.render('adminClassesCreated', {
-        classes: classesTable
-
+        classes: ethClasses.getAllClasses()
     });
 });
 

@@ -19,7 +19,13 @@ router.post('/', function (req, res, next) {
     if (user) {
         req.session.authenticatedUsername = user.email;
         req.session.authenticatedUser = user;
-        res.status(200).redirect("/homePage");
+        if(user.isAdmin){
+            res.status(200).redirect("/adminClassesCreated");
+        } else if(!user.isStudent){
+            res.status(200).redirect("/instructorDashboard");
+        } else{
+            res.status(200).redirect("/studentWallet");
+        }
     } else {
         req.session.authenticatedUser = '';
         req.session.authenticatedUser = null;

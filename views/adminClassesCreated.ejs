@@ -38,8 +38,6 @@
     <h1>Classes Created</h1>
 </div>
 
-<div class="panel-heading">Balance</div>
-
 <table class="table table-striped" dir="ltr" width="500" border="1"
        summary="purpose/structure for speech output">
 
@@ -58,28 +56,24 @@
 
     </tr>
     </thead>
-    <tfoot>
-    <tr>
-        <% classes.classesCreatedTable.forEach(function(item){ %>
-        <td><%= item.className %></td>
-        <td><%= item.timestamp %></td>
-        <td><%= item.location %></td>
-        <td><%= item.instructor %></td>
-        <td><%= item.classType %></td>
-        <td>
-            <input type="checkbox" name="option1">
-        </td>
-    </tr>
-    </tfoot>
     <tbody>
-
-    <% }); %>
+        <% classes.forEach(function(item){ %>
+        <tr>
+            <td><%= item.name %></td>
+            <td><%= item.date %> <%= item.startTime %></td>
+            <td><%= item.location %></td>
+            <td><%= item.instructor %></td>
+            <td><%= item.classType %></td>
+            <td>
+                <input type="checkbox" name="option1">
+            </td>
+        </tr>
+        <% }); %>
     </tbody>
 </table>
 
 <a type="button" class="btn btn-primary" href="adminCreateClass">Add a Class</a>
 <a type="button" class="btn btn-primary" href="adminEnrollStudent">Enroll a Student</a>
-
 
 </body>
 </html>

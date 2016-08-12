@@ -53,6 +53,6 @@ GethWrapper.prototype.getEthAccount = function(index) {
 
 GethWrapper.prototype.bytesToString = function(rawBytes){
   return web3.toUtf8(rawBytes);
-}
+};
 
 module.exports = GethWrapper;

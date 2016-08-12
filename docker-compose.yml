@@ -37,7 +37,7 @@ services:
       --rpcaddr 0.0.0.0
       --rpcapi "eth,web3,admin,db,net,miner,personal"
       --rpccorsdomain="*"
-      --unlock 0,1,2,3,4
+      --unlock 0,1,2,3
       --password /root/.ethereum/passwords
 
   contract:
@@ -65,7 +65,7 @@ services:
       - "3000:3000"
     environment:
       - GETH_HOST=geth:8545
-      - QUB_COIN_ADDRESS=0xfdccaa886d3dfdf1a157ad605ea4185d2f420a52
+      - QUB_COIN_ADDRESS=0x04911833e1f6641d8cfeaa48df75dd98d2cd1e4b
     command:
       /bin/bash -c
         "npm install && node bin/www"
