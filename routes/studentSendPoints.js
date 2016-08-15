@@ -7,9 +7,11 @@ var inst = require('../instructor.json');
 var ethClasses = require('../lib/classes.js');
 
 /* Get instructor-dashboard page. */
-router.get('/', function(req, res, next){
+router.get('/', function (req, res, next) {
     res.render('studentSendPoints', {
-        header: 'Student Send Points' ,
+
+
+        header: 'Student Send Points',
         instructor: inst,
         //TODO: hook this to the ethClass and remove hard-coded class sample
         // class: ethClasses.getClassForAddress(req.query.classId)

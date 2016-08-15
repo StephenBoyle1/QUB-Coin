@@ -5,10 +5,10 @@ var transactionHistoryTable = require('../transactionHistory.json');
 
 
 /* Get instructor-dashboard page. */
-router.get('/', function(req, res, next){
-    if(req.session.authenticatedUsername && req.session.authenticatedUsername != ''){
+router.get('/', function (req, res, next) {
+    if (req.session.authenticatedUsername && req.session.authenticatedUsername != '') {
         res.render('studentWallet', {
-            header: 'Student Wallet' ,
+            header: 'Student Wallet',
             authenticatedUser: req.session.authenticatedUser,
             classes: transactionHistoryTable
         });
