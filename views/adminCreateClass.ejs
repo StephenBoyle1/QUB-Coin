@@ -9,108 +9,108 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="adminClassesCreated">QUB Coin</a>
-            </div>
-
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Logout </a></li>
-                </ul>
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="adminClassesCreated">QUB Coin</a>
         </div>
-    </nav>
 
-    <div class="page-header">
-        <h1>Create a Class</h1>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Logout </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Create a Class</h1>
+</div>
+
+<form class="form-horizontal" method="post" action="/adminCreateClass" role="form">
+    <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <div class="col-xs-4">
+            <input name="inputName" type="text" class="form-control" placeholder="Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputLocation" class="col-sm-2 control-label">Select Location</label>
+        <div class="col-xs-4 ">
+            <select name="inputLocation" class="form-control"><
+                <option value="Room 1" selected>Room 1</option>
+                <option value="Room 2">Room 2</option>
+                <option value="Lab 1">Lab 1</option>
+                <option value="Lab 2">Lab 2</option>
+            </select>
+        </div>
     </div>
 
-    <form class="form-horizontal" method="post" action="/adminCreateClass" role="form">
-        <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-            <div class="col-xs-4">
-                <input name="inputName" type="text" class="form-control" placeholder="Name">
-            </div>
+    <div class="form-group">
+        <label for="inputTime" class="col-sm-2 control-label">Start Time</label>
+        <div class="col-xs-4">
+            <input name="inputTime" type="time" class="form-control" placeholder="Time">
         </div>
-        <div class="form-group">
-            <label for="inputLocation" class="col-sm-2 control-label">Select Location</label>
-            <div class="col-xs-4 ">
-                <select name="inputLocation" class="form-control"><
-                    <option value="Room 1" selected>Room 1</option>
-                    <option value="Room 2">Room 2</option>
-                    <option value="Lab 1">Lab 1</option>
-                    <option value="Lab 2">Lab 2</option>
-                </select>
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group">
-            <label for="inputTime" class="col-sm-2 control-label">Start Time</label>
-            <div class="col-xs-4">
-                <input name="inputTime" type="time" class="form-control" placeholder="Time">
-            </div>
+    <div class="form-group">
+        <label for="inputDuration" class="col-sm-2 control-label">Select Duration</label>
+        <div class="col-xs-4 ">
+            <select name="inputDuration" class="form-control"><
+                <option value="1" selected>1 hour</option>
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+            </select>
         </div>
-
-        <div class="form-group">
-            <label for="inputDuration" class="col-sm-2 control-label">Select Duration</label>
-            <div class="col-xs-4 ">
-                <select name="inputDuration" class="form-control"><
-                    <option value="1" selected>1 hour</option>
-                    <option value="2">2 hours</option>
-                    <option value="3">3 hours</option>
-                </select>
-            </div>
-        </div>
+    </div>
 
 
-        <div class="form-group">
-            <label for="inputDate" class="col-sm-2 control-label">Date</label>
-            <div class="col-xs-4">
-                <input name="inputDate" type="date" class="form-control" placeholder="Date">
-            </div>
+    <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">Date</label>
+        <div class="col-xs-4">
+            <input name="inputDate" type="date" class="form-control" placeholder="Date">
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
-            <div class="col-xs-4 ">
-                <select name="inputInstructor" class="form-control"><
-                    <option value="">Select Instructor</option>
-                    <% instructors.forEach(function(instructor){ %>
-                    <option value="<%= instructor.accountId %>"><%= instructor.name %></option>
-                    <% }); %>
-                </select>
-            </div>
+    <div class="form-group">
+        <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
+        <div class="col-xs-4 ">
+            <select name="inputInstructor" class="form-control"><
+                <option value="">Select Instructor</option>
+                <% instructors.forEach(function(instructor){ %>
+                <option value="<%= instructor.accountId %>"><%= instructor.name %></option>
+                <% }); %>
+            </select>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="inputClassType" class="col-sm-2 control-label">Select Class Type</label>
-            <div class="col-xs-4 ">
-                <select name="inputClassType" class="form-control"><
-                    <option value="Lecture" selected>Lecture</option>
-                    <option value="Practical">Practical</option>
-                </select>
-            </div>
+    <div class="form-group">
+        <label for="inputClassType" class="col-sm-2 control-label">Select Class Type</label>
+        <div class="col-xs-4 ">
+            <select name="inputClassType" class="form-control"><
+                <option value="Lecture" selected>Lecture</option>
+                <option value="Practical">Practical</option>
+            </select>
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-primary" name="submit" type="submit">Create Class</button>
-            </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" name="submit" type="submit">Create Class</button>
         </div>
+    </div>
 
-    </form>
+</form>
 </body>
 </html>
