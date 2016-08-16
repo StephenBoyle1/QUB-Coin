@@ -36,7 +36,7 @@
 </nav>
 
 <div class="page-header">
-    <h1>Enroll a Student</h1>
+    <h1>Enroll a Student in <%= theClass.name %> </h1>
 </div>
 
 <table class="table table-striped" dir="ltr" width="500" border="1"
@@ -58,7 +58,8 @@
         <% students.studentsEnrolledTable.forEach(function(item){ %>
         <td><%= item.name %></td>
         <td>
-            <input type="checkbox" name="option1">
+            <input type="checkbox" name="option1"
+                   onchange="window.location.href='adminStudentsEnrolled?classId=<%= item.student %>'">
         </td>
 
 

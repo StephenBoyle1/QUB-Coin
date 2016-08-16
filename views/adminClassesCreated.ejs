@@ -52,7 +52,7 @@
         <th scope="col">Location</th>
         <th scope="col">Instructor</th>
         <th scope="col">Class Type</th>
-        <th scope="col">Select</th>
+        <th scope="col">Enroll</th>
 
     </tr>
     </thead>
@@ -64,16 +64,16 @@
             <td><%= item.location %></td>
             <td><%= item.instructor %></td>
             <td><%= item.classType %></td>
-            <td>
-                <input type="checkbox" name="option1">
-            </td>
+           <td> <input type="radio" name="optradio"
+                       onchange="window.location.href='adminEnrollStudent?classId=<%= item.classId %>'">
+           </td>
         </tr>
         <% }); %>
     </tbody>
 </table>
 
 <a type="button" class="btn btn-primary" href="adminCreateClass">Add a Class</a>
-<a type="button" class="btn btn-primary" href="adminEnrollStudent">Enroll a Student</a>
+<a type="button" class="btn btn-primary" href="adminEnrollStudent">Enroll Students</a>
 
 </body>
 </html>
