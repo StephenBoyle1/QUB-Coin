@@ -16,16 +16,10 @@ router.get('/', function (req, res, next) {
         });
     } else {
 
-        // This is what we should do, but since you may not have done the docker setup and run GETH successfully, it will stop you using that page,
-        // So I am commenting this out for now:
+        //redirecting to login page if current user is not registered onto the system
         console.log("req.session.User NOT authenticated, redirecting to login");
         res.redirect("login");
-        console.log("User NOT authenticated, accepting for now, until we have GETH setup successfully...");
-        res.render('studentLogAttendance', {
-            header: 'Student Log Attendance',
-            instructor: inst,
-            authenticatedUser: 'Anonymous Student'
-        });
+
     }
 });
 
