@@ -13,8 +13,8 @@ router.get('/', function (req, res, next) {
             classes: transactionHistoryTable
         });
     } else {
-        // This is what we should do, but since you may not have done the docker setup and run GETH successfully, it will stop you using that page,
-        // So I am commenting this out for now:
+
+        //redirecting to login page if current user is not registered onto the system
         console.log("req.session.authenticatedUsername NOT authenticated, redirecting to login");
         res.redirect("login");
     }
