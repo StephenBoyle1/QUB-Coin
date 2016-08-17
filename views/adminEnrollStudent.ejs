@@ -39,6 +39,7 @@
     <h1>Enroll a Student in <%= theClass.name %> </h1>
 </div>
 
+<form class="form-horizontal" method="post" action="/adminEnrollStudent" role="form">
 <table class="table table-striped" dir="ltr" width="500" border="1"
        summary="purpose/structure for speech output">
 
@@ -55,11 +56,12 @@
     </thead>
     <tfoot>
     <tr>
-        <% students.studentsEnrolledTable.forEach(function(item){ %>
+        <% students.forEach(function(item){ %>
         <td><%= item.name %></td>
         <td>
-            <input type="checkbox" name="option1"
-                   onchange="window.location.href='adminStudentsEnrolled?classId=<%= item.student %>'">
+            <input type="checkbox" name="selectedStudents"
+                   value="checkboxStudents"
+                   onchange="window.location.href='adminStudentsEnrolled?classId=<%= students.name %>'">
         </td>
     </tr>
     </tfoot>
@@ -68,6 +70,7 @@
     <% }); %>
     </tbody>
 </table>
+</form>
 
 <div class="form-group">
 
