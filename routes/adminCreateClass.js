@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
+var ethAuth = require('../lib/auth.js');
 var ethClasses = require('../lib/classes.js');
 
 /* Get instructor-dashboard page. */
