@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-//var inst = require('../instructor.json');
+var ethClasses = require('../lib/classes.js');
 var transactionHistoryTable = require('../transactionHistory.json');
 
 
@@ -10,7 +10,8 @@ router.get('/', function (req, res, next) {
         res.render('studentWallet', {
             header: 'Student Wallet',
             authenticatedUser: req.session.authenticatedUser,
-            classes: transactionHistoryTable
+            classes: transactionHistoryTable,
+            transfers: ethClasses.getTransfersFor(req.session.authenticatedUser)
         });
     } else {
 
