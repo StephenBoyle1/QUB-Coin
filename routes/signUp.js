@@ -14,7 +14,7 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
     try{
-        ethAuth.registerUser(req.body.name, req.body.email, req.body.password, true, function(error, newRegisteredAccount){
+        ethAuth.registerUser(req.body.name, req.body.email, req.body.password, UserTypeEnum.Student, function(error, newRegisteredAccount){
             if(error){
                 console.log("Failed to register new user=" + error);
                 res.status(500).send({status:'Registration failed', reason: error});

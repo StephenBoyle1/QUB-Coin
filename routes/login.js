@@ -19,9 +19,9 @@ router.post('/', function (req, res, next) {
     if (user) {
         req.session.authenticatedUsername = user.email;
         req.session.authenticatedUser = user;
-        if(user.isAdmin){
+        if(user.userType == UserTypeEnum.Admin){
             res.status(200).redirect("/adminClassesCreated");
-        } else if(!user.isStudent){
+        } else if(user.userType == UserTypeEnum.Instructor){
             res.status(200).redirect("/instructorDashboard");
         } else{
             res.status(200).redirect("/studentWallet");

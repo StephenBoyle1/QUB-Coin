@@ -33,7 +33,7 @@ GethWrapper.prototype.createContract = function(callback){
   var theContract = contractInstance.new({
     from: fromAccount,
     data: contractObject.bytecode,
-    gas: 3000000
+    gas: 4712388
   }, function(e, contract) {
     console.log(e, contract);
     if (typeof contract.address != 'undefined') {
@@ -53,6 +53,18 @@ GethWrapper.prototype.getEthAccount = function(index) {
 
 GethWrapper.prototype.bytesToString = function(rawBytes){
   return web3.toUtf8(rawBytes);
+};
+
+GethWrapper.prototype.waitForTxnConfirmed = function(txnHash, callback){
+  filter = web3.eth.filter('latest');
+  filter.watch(function(error, result) {
+    var receipt = web3.eth.getTransactionReceipt(txnHash);
+    if (receipt && receipt.transactionHash == txnHash) {
+      console.log('Transaction [%s] confirmed!', txnHash);
+      filter.stopWatching();
+      callback(null, txnHash);
+    }
+  });
 };
 
 module.exports = GethWrapper;

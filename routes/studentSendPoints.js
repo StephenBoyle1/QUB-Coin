@@ -1,32 +1,35 @@
-/**
- * Created by linzi on 26/07/2016.
- */
 var express = require('express');
 var router = express.Router();
-var inst = require('../instructor.json');
 var ethClasses = require('../lib/classes.js');
 
 /* Get instructor-dashboard page. */
 router.get('/', function (req, res, next) {
     res.render('studentSendPoints', {
-
-
-        header: 'Student Send Points',
-        instructor: inst,
-        //TODO: hook this to the ethClass and remove hard-coded class sample
-        // class: ethClasses.getClassForAddress(req.query.classId)
-        theClass: {
-            classId: "0xfdccaa886d3dfdf1a157ad605ea4185d2f420a52",
-            name: "Networks",
-            location: "Room 1",
-            startTime: "09:00",
-            duration: 1,
-            date: "14/08/2016",
-            instructor: "instructor1@qub.ac.uk",
-            classType: "lecture"
-        }
+        header: 'Student Send Points' ,
+        theClass: ethClasses.getClassForAddress(req.query.classId)
     });
 });
 
+router.post('/', function(req, res, next){
+    try{
+        ethClasses.sendCoins(
+            req.session.authenticatedUser.accountId,
+            req.query.classId,
+            req.body.pointsAmount,
+            req.body.feedbackRate,
+            function(error, data){
+                if (error) {
+                    res.status(400).send({status: 'Failed to send points', reason: error.toString()});
+                } else {
+                    console.log("Points sent successfully: %s", data);
+                    res.status(201).redirect("/studentWallet");
+                }
+            }
+        );
+    } catch(error){
+        console.log("Failed to send coins for class [%s], error: %s", req.query.classId, error);
+        res.status(500).send({status:'Failed to send coins', reason: error});
+    }
+});
 
 module.exports = router;

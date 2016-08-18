@@ -51,6 +51,7 @@ contract QUBClass {
     return false;
   }
 
+  // Only the instructor teaching the class is able to set the temporary secret.
   function setSecret(bytes32 _secret){
     if(instructor == tx.origin){
       secret = _secret;
@@ -64,13 +65,13 @@ contract QUBClass {
 
 contract QUBCoin {
 
-   uint16 constant ERROR_ACCOUNT_NOT_REGISTERED = 1000;
-   uint16 constant ERROR_UNKNOWN_CLASS = 1001;
-   uint16 constant ERROR_STUDENT_NOT_ENROLLED = 1002;
-   uint16 constant ERROR_STUDENT_DID_NOT_ATTEND = 1003;
-   uint16 constant ERROR_INSUFFICIENT_FEEDBACK_BALANCE = 1004;
-   uint16 constant ERROR_STUDENT_ALREADY_ATTENDED = 1005;
-   uint16 constant ERROR_CLASS_SECRET_MISMATCH = 1006;
+//   uint16 constant ERROR_ACCOUNT_NOT_REGISTERED = 1000;
+//   uint16 constant ERROR_UNKNOWN_CLASS = 1001;
+//   uint16 constant ERROR_STUDENT_NOT_ENROLLED = 1002;
+//   uint16 constant ERROR_STUDENT_DID_NOT_ATTEND = 1003;
+//   uint16 constant ERROR_INSUFFICIENT_FEEDBACK_BALANCE = 1004;
+//   uint16 constant ERROR_STUDENT_ALREADY_ATTENDED = 1005;
+//   uint16 constant ERROR_CLASS_SECRET_MISMATCH = 1006;
 
   address constant addr1 = 0xb99ad90226f8e53f998334171f007a0191e07b7d;
   address constant addr2 = 0x54fe03c5df044aadbb7b1d17198916f907c22b24;
@@ -81,9 +82,6 @@ contract QUBCoin {
   enum CoinType { Attendance, Feedback }
   enum UserType { Student, Instructor, Admin }
   enum FeedbackRate { Excellent, Good, Average, Poor, NA }
-
-  event FeedbackSentEvent(uint16 indexed error, address indexed senderId, address indexed classId);
-  event AttendanceLoggedEvent(uint16 indexed error, address indexed senderId, address indexed classId);
 
   struct CoinTransfer {
     address sender;
@@ -119,7 +117,7 @@ contract QUBCoin {
   // Stores the instructor and students details in a static array (only Balances will evolve)
   mapping(address => User) public users;
 
-  // Cant use string for key of a mapping: need to use a fixed-length type like bytes32
+  // Cant use string for key of a mapping: need to use a fied-length type like bytes32
   mapping(bytes32 => address) public registeredEmails;
 
   mapping(uint => address) public instructorsAddresses;
@@ -178,72 +176,72 @@ contract QUBCoin {
     }
   }
 
-  function logAttendance(address _classId, bytes32 _secret) external returns (uint16 error) {
+  function logAttendance(address _classId, bytes32 _secret) external {
     // Check that both student and class exist
     User theStudent = users[msg.sender];
     if(theStudent.accountId == address(0x0)){
-      AttendanceLoggedEvent(ERROR_ACCOUNT_NOT_REGISTERED, msg.sender, _classId);
-      return ERROR_ACCOUNT_NOT_REGISTERED;
+      //return ERROR_ACCOUNT_NOT_REGISTERED;
+      throw;
     }
     if(classes[_classId].instructor() == address(0x0)){
-      AttendanceLoggedEvent(ERROR_UNKNOWN_CLASS, msg.sender, _classId);
-      return ERROR_UNKNOWN_CLASS;
+      //return ERROR_UNKNOWN_CLASS;
+      throw;
     }
 
     // Check that the student is enrolled
     if(!classes[_classId].isStudentEnrolled(msg.sender)){
-      AttendanceLoggedEvent(ERROR_STUDENT_NOT_ENROLLED, msg.sender, _classId);
-      return ERROR_STUDENT_NOT_ENROLLED;
+      //return ERROR_STUDENT_NOT_ENROLLED;
+      throw;
     }
 
     // Check that the attendance was not already logged for that class
     if(theStudent.attendances[_classId].classId != address(0x0)){
-      AttendanceLoggedEvent(ERROR_STUDENT_ALREADY_ATTENDED, msg.sender, _classId);
-      return ERROR_STUDENT_ALREADY_ATTENDED;
+      //return ERROR_STUDENT_ALREADY_ATTENDED;
+      throw;
     }
 
     // Check that the secret matches the class's secret
     if(!classes[_classId].matchesSecret(_secret)){
-      AttendanceLoggedEvent(ERROR_CLASS_SECRET_MISMATCH, msg.sender, _classId);
-      return ERROR_CLASS_SECRET_MISMATCH;
-
+      //return ERROR_CLASS_SECRET_MISMATCH;
+      throw;
     }
 
     theStudent.attendances[_classId] = Attendance(_classId, classes[_classId].attendanceReward(), 10);
+
     theStudent.transfers[++theStudent.numOfTransfers] = CoinTransfer(_classId, msg.sender, _classId, CoinType.Attendance, classes[_classId].attendanceReward(), uint8(FeedbackRate.NA), now);
     theStudent.transfers[++theStudent.numOfTransfers] = CoinTransfer(_classId, msg.sender, _classId, CoinType.Feedback, 10, uint8(FeedbackRate.NA), now);
+
     theStudent.attendanceBalance += classes[_classId].attendanceReward();
-    AttendanceLoggedEvent(0, msg.sender, _classId);
   }
 
-  function sendFeedback(address _classId, uint _feedbackPoints, uint8 _feedbackRate) external returns (uint16 error) {
+  function sendFeedback(address _classId, uint _feedbackPoints, uint8 _feedbackRate) external {
     // Check that both student and class exist
     User theStudent = users[msg.sender];
     if(theStudent.accountId == address(0x0)){
-      FeedbackSentEvent(ERROR_ACCOUNT_NOT_REGISTERED, msg.sender, _classId);
-      return ERROR_ACCOUNT_NOT_REGISTERED;
+      //return ERROR_ACCOUNT_NOT_REGISTERED;
+      throw;
     }
     if(classes[_classId].instructor() == address(0x0)){
-      FeedbackSentEvent(ERROR_UNKNOWN_CLASS, msg.sender, _classId);
-      return ERROR_UNKNOWN_CLASS;
+      //return ERROR_UNKNOWN_CLASS;
+      throw;
     }
 
     // Check that the student is enrolled
     if(!classes[_classId].isStudentEnrolled(msg.sender)){
-      FeedbackSentEvent(ERROR_STUDENT_NOT_ENROLLED, msg.sender, _classId);
-      return ERROR_STUDENT_NOT_ENROLLED;
+      //return ERROR_STUDENT_NOT_ENROLLED;
+      throw;
     }
 
     // Check that the attendance was logged for that class
     if(theStudent.attendances[_classId].classId == address(0x0)){
-      FeedbackSentEvent(ERROR_STUDENT_DID_NOT_ATTEND, msg.sender, _classId);
-      return ERROR_STUDENT_DID_NOT_ATTEND;
+      //return ERROR_STUDENT_DID_NOT_ATTEND;
+      throw;
     }
 
     //Check that student has enough feedback coins to send to receiver
     if(theStudent.attendances[_classId].feedbackAmount < _feedbackPoints){
-      FeedbackSentEvent(ERROR_INSUFFICIENT_FEEDBACK_BALANCE, msg.sender, _classId);
-      return ERROR_INSUFFICIENT_FEEDBACK_BALANCE;
+      //return ERROR_INSUFFICIENT_FEEDBACK_BALANCE;
+      throw;
     }
 
     CoinTransfer memory theTransfer = CoinTransfer(msg.sender, classes[_classId].instructor(), _classId, CoinType.Feedback, _feedbackPoints, _feedbackRate, now);
@@ -253,7 +251,6 @@ contract QUBCoin {
     User theRecipient = users[classes[_classId].instructor()];
     theRecipient.transfers[++theRecipient.numOfTransfers] = theTransfer;
     theRecipient.feedbackBalance += _feedbackPoints;
-    FeedbackSentEvent(0, msg.sender, _classId);
   }
 
   function setClassSecret(address _classId, bytes32 secret) external {
