@@ -1,6 +1,4 @@
-/**
- * Created by Linzi on 05/08/2016.
- */
+
 var express = require('express');
 var router = express.Router();
 var studentsTable = require('../students.json');

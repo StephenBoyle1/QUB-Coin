@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var inst = require('../instructor.json');
-var classesTable = require('../classes.json');
+var ethClasses = require('../lib/classes.js');
 
 
 /* Get instructor-dashboard page. */
 router.get('/', function (req, res, next) {
     if (req.session.authenticatedUsername && req.session.authenticatedUsername != '') {
         res.render('studentLogAttendance', {
+            theClass: ethClasses.getClassForAddress(req.query.classId),
             header: 'Student Log Attendance',
-            classes: classesTable,
             authenticatedUsername: req.session.authenticatedUsername,
             authenticatedUser: req.session.authenticatedUser
         });
