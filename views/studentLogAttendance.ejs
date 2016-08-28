@@ -34,30 +34,19 @@
         <h1>Log Your Attendance</h1>
     </div>
     <form class="form-horizontal">
-        <div class="form-group" role="form">
-            <label for="className" class="col-sm-2 control-label">Select Class</label>
-            <tbody>
-            <%= theClass.name %>
-            </tbody>
-        </div>
-        <div class="form-group" role="form">
-            <label for="inputInstructor" class="col-sm-2 control-label">Select Location</label>
-            <div class="col-xs-4 ">
-                <select class="form-control"><
-                    <option value="1" selected>Room 1</option>
-                    <option>Room 1</option>
-                    <option>Room 2</option>
-                    <option>Lab 1</option>
-                    <option>Lab 2</option>
-                </select>
+        <div class="form-group">
+            <label for="className" class="col-sm-2 control-label">Class Name</label>
+            <div class="col-xs-4">
+                <input name="className" type="text" class="form-control" placeholder="Name" value="<%= theClass.name %>"
+                       readonly>
             </div>
         </div>
-        <div class="form-group" role="form">
-            <label for="inputInstructor" class="col-sm-2 control-label">Select Instructor</label>
-            <div class="col-xs-4 ">
-                <select class="form-control">
-                    <option value="<%= theClass.instructor.name %>"><%= theClass.instructor.name %></option>
-                </select>
+
+        <div class="form-group">
+            <label for="classInstructor" class="col-sm-2 control-label">Class Instructor</label>
+            <div class="col-xs-4">
+                <input name="classInstructor" type="text" class="form-control" value="<%= theClass.instructor.name %> (<%= theClass.instructor.email %>)" readonly>
+                <input name="classInstructorId" type="hidden" class="form-control" value="<%= theClass.instructor.id %>" readonly>
             </div>
         </div>
         <div class="form-group">
