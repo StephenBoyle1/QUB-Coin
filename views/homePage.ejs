@@ -1,145 +1,102 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
-
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/homePage">Home Page</a>
-
-
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="/studentWallet">Wallet</a></li>
-                <li><a href="/studentDisplayClasses">Display Classes</a></li>
-                <li><a href="/studentLogAttendance">Log Attendance</a></li>
-
-                <li><a href="/logout">Log Out</a></li>
-
-            </ul>
-
-
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-
-<div class="banner">
-    <div class="inner-banner-full">
-        <img src="images/qubimage.png" alt="Queens" style="width:1300px;height:400px;">
-
-        <div class="banner__caption-banner light">
-
-            <div class="page-header text-primary">
-                <h3><%= authenticatedUser.name %> Welcome To Queen's University Coin</h3>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/homePage">Home Page</a>
             </div>
-
-
-            <h4>
-
-                <large class="text-muted">Anonymous Student Feedback</large>
-
-            </h4>
-            <p></p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/studentWallet">Wallet</a></li>
+                    <li><a href="/studentDisplayClasses">Display Classes</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Logout </a></li>
+                    </ul>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="banner">
+        <div class="inner-banner-full">
+            <img src="images/qubimage.png" alt="Queens" style="width:1300px;height:400px;">
+            <div class="banner__caption-banner light">
+                <div class="page-header text-primary">
+                    <h3><%= authenticatedUser.name %> Welcome To Queen's University Coin</h3>
+                </div>
+                <h4>
+                    <large class="text-muted">Anonymous Student Feedback</large>
+                </h4>
+                <p></p>
+            </div>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         </div>
-
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
+        <header class="headroom headroom--pinned headroom--top">
+            <div class="inner">
+            </div>
+        </header>
     </div>
-
-
-    <header class="headroom headroom--pinned headroom--top">
-        <div class="inner">
-
-
-        </div>
-    </header>
-</div>
-
-
-<!-- You can create scalable multi-column layouts with up to 12 columns. Scaling is focused on screens < 768px, >= 768px, >=992px and >1200px -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width = device-width, initial-scale = 1">
-
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container">
-
-
-</div>
-<br>
-
-<!-- For different sized columns divide up the 12 -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-
-            <!-- We can collapse or hide data on the screen -->
-            <h4><a href="#col1Content" data-toggle="collapse">QUB Coin </a></h4>
-
-
-            <!-- With collapse in this div shows on load -->
-            <div id="col1Content" class="collapse in">The system will allocate a points based system that can be used to
-                tip their instructors as a means to provide positive real time feedback in an anonymous manner. As
-                university fees are increasing, students are demanding more from their universities to provide a better
-                learning experience.
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+    </head>
+    <body>
+    <div class="container">
+    </div>
+    <br>
+    <!-- For different sized columns divide up the 12 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                <!-- We can collapse or hide data on the screen -->
+                <h4><a href="#col1Content" data-toggle="collapse">QUB Coin </a></h4>
+                <!-- With collapse in this div shows on load -->
+                <div id="col1Content" class="collapse in">The system will allocate a points based system that can be used to
+                    tip their instructors as a means to provide positive real time feedback in an anonymous manner. As
+                    university fees are increasing, students are demanding more from their universities to provide a better
+                    learning experience.
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
-            <h4><a href="#col2Content" data-toggle="collapse">Overview</a></h4>
-
-            <!-- With class collapse this div won't show on load -->
-            <div id="col2Content" class="collapse">This will create a more engaging learning environment and more
-                effective feedback system than the paper pased feedback system, currently used within the university.
-                Students will have A "general" coin: assigned to student when attending classes (lectures/practicals)
-                A "personal" coin: temporarily assigned to student that can only be transferred to either an instructor
-                or a peer (pending approval by instructor), as a way to provide weighted feedback when support or help
-                was provided during a class. To encourage more students to attend lectures the system will allocate 10
-                points for attending a 1 hour lecture and 5 points for attending a practical.
+            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                <h4><a href="#col2Content" data-toggle="collapse">Overview</a></h4>
+                <!-- With class collapse this div won't show on load -->
+                <div id="col2Content" class="collapse">This will create a more engaging learning environment and more
+                    effective feedback system than the paper pased feedback system, currently used within the university.
+                    Students will have A "general" coin: assigned to student when attending classes (lectures/practicals)
+                    A "personal" coin: temporarily assigned to student that can only be transferred to either an instructor
+                    or a peer (pending approval by instructor), as a way to provide weighted feedback when support or help
+                    was provided during a class. To encourage more students to attend lectures the system will allocate 10
+                    points for attending a 1 hour lecture and 5 points for attending a practical.
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h4><a href="#col3Content" data-toggle="collapse">How To Use</a></h4>
-            <div id="col3Content" class="collapse">To encourage more students to engage with they system, there will be
-                two types of coins; general coins for sending to instructors and proof of concept personal coins that
-                will enable students to send to their peers and buy from a vendor. Click on your wallet to view your
-                coin balance you can also view the classes you are enrolled on log you attendance and send points to
-                the instructor of your choice
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h4><a href="#col3Content" data-toggle="collapse">How To Use</a></h4>
+                <div id="col3Content" class="collapse">To encourage more students to engage with they system, there will be
+                    two types of coins; general coins for sending to instructors and proof of concept personal coins that
+                    will enable students to send to their peers and buy from a vendor. Click on your wallet to view your
+                    coin balance you can also view the classes you are enrolled on log you attendance and send points to
+                    the instructor of your choice
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
+    <br>
+    </body>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
-</html>
 
 
 
