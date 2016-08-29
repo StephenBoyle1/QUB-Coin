@@ -1,124 +1,124 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>student</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    </head>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/homePage">Home Page</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="/studentWallet">Wallet</a></li>
-                    <li><a href="/studentDisplayClasses">Display Classes</a></li>
-                    <li><a href="/login">Log Out</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <img src="images/qublogo.png" height="200" style="max-width: 300px">
-    <div class="page-header text-primary">
-        <h1><%= authenticatedUser.name %> Student Wallet</h1>
-    </div>
-    <h3 class="text-muted"> Current Attendance Balance: <span
-                class="label label-default"><%= authenticatedUser.attendanceBalance %></span></h3>
-    <h3 class="text-muted">Current Feedback Balance: <span
-                class="label label-default"><%= authenticatedUser.feedbackBalance %></span></h3>
-    <table class="table table-striped" dir="ltr" width="500" border="1"
-           summary="purpose/structure for speech output">
-        <colgroup id="colgroup" class="colgroup" align="center"
-                  valign="middle" title="title" width="30%"
-                  span="2"/>
-        <thead>
-        <thead class="table table-striped">
-        <tr>
-            <th scope="col">Balance History (Attendance Coins)</th>
-            <th scope="col">Amount Transfered</th>
-            <th scope="col">To</th>
-            <th scope="col">From</th>
-            <th scope="col">Time Stamp</th>
-        <tfoot>
-        <tr>
-            <!--loop through table and populate JSON data -->
-            <% classes.transactionHistoryTable.forEach(function (item) { %>
-            <td><%= item.balancehistory %></td>
-            <td><%= item.amounttransfered %></td>
-            <td><%= item.to %></td>
-            <td><%= item.from %></td>
-            <td><%= item.timestamp %></td>
-        </tr>
-        <% } ); %>
-        </tfoot>
-    </table>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width = device-width, initial-scale = 1">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    </head>
-    <div class="container">
-        <!-- The table class adds nice spacing and the other classes add additional style -->
-        <table class="table table-bordered table-striped table-hover">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>student</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        </head>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/homePage">Home Page</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/studentWallet">Wallet</a></li>
+                        <li><a href="/studentDisplayClasses">Display Classes</a></li>
+                        <li><a href="/login">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <img src="images/qublogo.png" height="200" style="max-width: 300px">
+        <div class="page-header text-primary">
+            <h1><%= authenticatedUser.name %> Student Wallet</h1>
+        </div>
+        <h3 class="text-muted"> Current Attendance Balance: <span
+                    class="label label-default"><%= authenticatedUser.attendanceBalance %></span></h3>
+        <h3 class="text-muted">Current Feedback Balance: <span
+                    class="label label-default"><%= authenticatedUser.feedbackBalance %></span></h3>
+        <table class="table table-striped" dir="ltr" width="500" border="1"
+               summary="purpose/structure for speech output">
+            <colgroup id="colgroup" class="colgroup" align="center"
+                      valign="middle" title="title" width="30%"
+                      span="2"/>
             <thead>
+            <thead class="table table-striped">
             <tr>
-                <td colspan="5">Personal Coins</td>
+                <th scope="col">Balance History (Attendance Coins)</th>
+                <th scope="col">Amount Transfered</th>
+                <th scope="col">To</th>
+                <th scope="col">From</th>
+                <th scope="col">Time Stamp</th>
+            <tfoot>
+            <tr>
+                <!--loop through table and populate JSON data -->
+                <% classes.transactionHistoryTable.forEach(function (item) { %>
+                <td><%= item.balancehistory %></td>
+                <td><%= item.amounttransfered %></td>
+                <td><%= item.to %></td>
+                <td><%= item.from %></td>
+                <td><%= item.timestamp %></td>
             </tr>
-            </thead>
-            <tbody>
-            <!-- adjust the width of table columns -->
-            <th class="col-md--0">
-                <!-- text alignment like text-center or text-right -->
-            <th class="text-center">Balance History</th>
-            <th class="text-center">To
-            <th class="text-center">From
-            <th class="text-center">TimeStamp
-                <tr>
-                    <td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
+            <% } ); %>
+            </tfoot>
         </table>
-    </div>
-    </html>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width = device-width, initial-scale = 1">
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        </head>
+        <div class="container">
+            <!-- The table class adds nice spacing and the other classes add additional style -->
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <td colspan="5">Personal Coins</td>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- adjust the width of table columns -->
+                <th class="col-md--0">
+                    <!-- text alignment like text-center or text-right -->
+                <th class="text-center">Balance History</th>
+                <th class="text-center">To
+                <th class="text-center">From
+                <th class="text-center">TimeStamp
+                    <tr>
+                        <td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </html>
 
 
 

@@ -1,75 +1,67 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Enroll Student</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="adminClassesCreated">QUB Coin</a>
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Enroll Student</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="adminClassesCreated">QUB Coin</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Logout </a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <div class="page-header">
+        <h1>Enroll a Student in <%= theClass.name %> </h1>
+    </div>
 
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Logout </a></li>
-            </ul>
+    <form class="form-horizontal" method="post" action="/adminEnrollStudent" role="form">
+        <input name="classId" type="hidden" class="form-control" value="<%= theClass.classId %>" readonly>
+        <table class="table table-striped" dir="ltr" width="500" border="1"
+               summary="purpose/structure for speech output">
+            <colgroup id="colgroup" class="colgroup" align="center"
+                      valign="middle" title="title" width="30%"
+                      span="2"/>
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Select</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% students.forEach(function(item){ %>
+            <tr>
+                <td><%= item.name %></td>
+                <td>
+                    <input type="checkbox" name="selectedStudents" value="<%= item.accountId %>"/>
+                </td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <!--<a type="create" class="btn btn-primary" href="/adminStudentsEnrolled">Enroll</a>-->
+            <button type="submit" class="btn btn-primary">Enroll</button>
         </div>
-    </div>
-</nav>
-
-<div class="page-header">
-    <h1>Enroll a Student in <%= theClass.name %> </h1>
-</div>
-
-<form class="form-horizontal" method="post" action="/adminEnrollStudent" role="form">
-    <input name="classId" type="hidden" class="form-control" value="<%= theClass.classId %>" readonly>
-    <table class="table table-striped" dir="ltr" width="500" border="1"
-           summary="purpose/structure for speech output">
-
-        <colgroup id="colgroup" class="colgroup" align="center"
-                  valign="middle" title="title" width="30%"
-                  span="2"/>
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Select</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <% students.forEach(function(item){ %>
-        <tr>
-            <td><%= item.name %></td>
-            <td>
-                <input type="checkbox" name="selectedStudents" value="<%= item.accountId %>"/>
-            </td>
-        </tr>
-        <% }); %>
-        </tbody>
-    </table>
-    <div class="form-group">
-        <!--<a type="create" class="btn btn-primary" href="/adminStudentsEnrolled">Enroll</a>-->
-        <button type="submit" class="btn btn-primary">Enroll</button>
-    </div>
-</form>
-
-</body>
-</html>
+    </form>
+    </body>
+    </html>
