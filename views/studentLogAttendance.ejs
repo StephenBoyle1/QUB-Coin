@@ -1,81 +1,88 @@
-        <!DOCTYPE html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Student Log Attendance</title>
-            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        </head>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/homePage">Home Page</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/studentWallet">Wallet</a></li>
-                        <li><a href="/studentDisplayClasses">Display Classes</a></li>
-                        <li><a href="/login">Log Out</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <div class="page-header text-primary">
-            <h1>Log Your Attendance</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/homePage">Home Page</a>
         </div>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label for="className" class="col-sm-2 control-label">Class Name</label>
-                <div class="col-xs-4">
-                    <input name="className" type="text" class="form-control" placeholder="Name" value="<%= theClass.name %>"
-                           readonly>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="classInstructor" class="col-sm-2 control-label">Class Instructor</label>
-                <div class="col-xs-4">
-                    <input name="classInstructor" type="text" class="form-control" value="<%= theClass.instructor.name %> (<%= theClass.instructor.email %>)" readonly>
-                    <input name="classInstructorId" type="hidden" class="form-control" value="<%= theClass.instructor.id %>" readonly>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputNumber" class="col-sm-2 control-label">Secret Number</label>
-                <div class="col-xs-4">
-                    <input type="number" class="form-control" id="inputNumber" placeholder="Secret Number Given By Instructor">
-                </div>
-            </div>
-        </form>
-        <div class="container">
-            <div class="col-sm-offset-2 col-sm-10">
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Log Attendance</button>
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>You have successfully logged your attendance.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/studentWallet">Wallet</a></li>
+                <li><a href="/studentDisplayClasses">Display Classes</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="text-primary page-header">
+    <h1>Send Coins</h1>
+</div>
+<form class="form-horizontal" role="form" method="post">
+    <div class="form-group">
+        <label for="className" class="col-sm-2 control-label">Class Name</label>
+        <div class="col-xs-4">
+            <input name="className" type="text" class="form-control" placeholder="Name" value="<%= theClass.name %>"
+                   readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="classInstructor" class="col-sm-2 control-label">Class Instructor</label>
+        <div class="col-xs-4">
+            <input name="classInstructor" type="text" class="form-control"
+                   value="<%= theClass.instructor.name %> (<%= theClass.instructor.email %>)" readonly>
+            <input name="classInstructorId" type="hidden" class="form-control" value="<%= theClass.instructor.id %>"
+                   readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="secret" class="col-sm-2 control-label">secret</label>
+        <div class="col-xs-4">
+            <input name="secret" type="text" class="form-control" placeholder="qubsecret" value="qubsecret"
+                   readonly>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-offset-2 col-sm-10">
+            <!-- Trigger the modal with a button -->
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Log Attendance
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You have successfully logged your attendance.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+    </div>
+</form>
+</body>
+</html>

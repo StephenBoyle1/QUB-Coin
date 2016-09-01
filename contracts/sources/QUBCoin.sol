@@ -206,13 +206,15 @@ contract QUBCoin {
     if(!classes[_classId].matchesSecret(_secret)){
       AttendanceLoggedEvent(ERROR_CLASS_SECRET_MISMATCH, msg.sender, _classId);
       return ERROR_CLASS_SECRET_MISMATCH;
-
     }
 
     theStudent.attendances[_classId] = Attendance(_classId, classes[_classId].attendanceReward(), 10);
-    theStudent.transfers[++theStudent.numOfTransfers] = CoinTransfer(_classId, msg.sender, _classId, CoinType.Attendance, classes[_classId].attendanceReward(), uint8(FeedbackRate.NA), now);
-    theStudent.transfers[++theStudent.numOfTransfers] = CoinTransfer(_classId, msg.sender, _classId, CoinType.Feedback, 10, uint8(FeedbackRate.NA), now);
+    CoinTransfer memory attendanceTransfer = CoinTransfer(_classId, msg.sender, _classId, CoinType.Attendance, classes[_classId].attendanceReward(), uint8(FeedbackRate.NA), now);
+    CoinTransfer memory feedbackTransfer = CoinTransfer(_classId, msg.sender, _classId, CoinType.Feedback, 10, uint8(FeedbackRate.NA), now);
+    theStudent.transfers[++theStudent.numOfTransfers] = attendanceTransfer;
+    theStudent.transfers[++theStudent.numOfTransfers] = feedbackTransfer;
     theStudent.attendanceBalance += classes[_classId].attendanceReward();
+    theStudent.feedbackBalance += 10;
     AttendanceLoggedEvent(0, msg.sender, _classId);
   }
 
@@ -249,6 +251,7 @@ contract QUBCoin {
     CoinTransfer memory theTransfer = CoinTransfer(msg.sender, classes[_classId].instructor(), _classId, CoinType.Feedback, _feedbackPoints, _feedbackRate, now);
     theStudent.transfers[++theStudent.numOfTransfers] = theTransfer;
     theStudent.attendances[_classId].feedbackAmount -= _feedbackPoints;
+    theStudent.feedbackBalance -= _feedbackPoints;
 
     User theRecipient = users[classes[_classId].instructor()];
     theRecipient.transfers[++theRecipient.numOfTransfers] = theTransfer;
